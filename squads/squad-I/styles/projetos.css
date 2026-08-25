@@ -1,114 +1,174 @@
-body {
-  background-color: black;
-  color: white;
-  font-family: Arial, sans-serif;
+/*
+=========================================================
+ARQUIVO: projetos.css (Squad I)
+OBJETIVO: Estilizar a página de portfólio e galeria de projetos.
+REFATORAÇÃO APLICADA:
+- Clean Code (Variáveis): Introdução do bloco :root para centralizar cores (Preto e Verde Neon).
+- Correção Técnica: Ajuste na propriedade 'transition' do overlay para funcionar corretamente ao entrar e sair do mouse.
+- Otimização de Performance: Especificação clara das propriedades alteradas nas transições.
+=========================================================
+*/
+
+:root {
+  --bg-body: #000000;
+  --bg-header: #111111;
+  --borda-card: #1f1f1f;
+  --texto-branco: #ffffff;
+  --cor-neon: #00ff5e;
+  --sombra-neon: rgba(0, 255, 94, 0.4);
+}
+
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--texto-branco);
+  font-family: Arial, sans-serif;
 }
 
 header {
-    padding: 20px;
-    text-align: center;
-    background-color: #111;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--bg-header);
+  border-bottom: 1px solid var(--borda-card);
+}
+
+header h1 {
+  font-size: 28px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+header h1 span {
+  color: var(--cor-neon);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    margin: 10px;
+  color: var(--texto-branco);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-nav a:hover {
-    color: #00ff5e;
+nav a:hover,
+nav a.ativo {
+  color: var(--cor-neon);
 }
 
 .interface {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-.flex {
-  display: flex;
-}
-
+/* TÍTULO DA SEÇÃO */
 h2.titulo {
-  color: #fff;
+  color: var(--texto-branco);
   font-size: 40px;
   text-align: center;
+  margin-top: 40px; /* Ajustado para evitar sobreposição indesejada */
+  margin-bottom: 40px;
 }
 
 h2.titulo span {
-  color: #00FF08;
+  color: var(--cor-neon);
 }
 
-.titulo {
-    margin-top: -50px;
-    margin-bottom: -20px;
-}
-
+/* SEÇÃO PORTFÓLIO */
 section.portfolio {
-  padding: 80px 4%;
+  padding: 60px 4%;
 }
 
 section.portfolio .flex {
-  justify-content: space-around;
-  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
+/* CARDS DE PROJETO (COM O EFEITO DE IMAGEM) */
 .img-port {
   width: 360px;
   height: 460px;
   background-size: cover;
   background-position: 100% 0%;
-  transition: 8s;
+  /* Otimização: Transição suave na posição do fundo e sombra */
+  transition: background-position 8s ease, transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
-  border-radius: 40px;
+  border-radius: 20px;
   position: relative;
+  overflow: hidden;
+  border: 1px solid var(--borda-card);
 }
 
 .img-port:hover {
   background-position: 100% 100%;
+  transform: translateY(-8px);
+  border-color: var(--cor-neon);
+  box-shadow: 0 0 25px var(--sombra-neon);
 }
 
+/* OVERLAY (EFEITO AO PASSAR O MOUSE) */
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000000b8;
-  border-radius: 40px;
+  background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
   font-weight: 600;
-  color: #fff;
+  color: var(--texto-branco);
+  
+  /* Correção técnica: A transição DEVE ficar no elemento base para valer tanto na ida quanto na volta do mouse */
   opacity: 0;
-  transition: .5s;
+  transition: opacity 0.4s ease;
 }
 
-.overlay:hover {
-  opacity: 1;
+.img-port:hover .overlay {
+  opacity: 1; /* Revela o overlay suavemente quando o card é focado */
 }
+
+
+/* =========================================================
+ MEDIA QUERIES (Responsividade)
+ ========================================================= */
 
 @media (max-width: 900px) {
   .img-port {
-    width: 300px;
-    height: 400px;
+      width: 300px;
+      height: 400px;
   }
 }
 
 @media (max-width: 600px) {
   h2.titulo {
-    font-size: 28px;
+      font-size: 28px;
+      margin-top: 30px;
+      margin-bottom: 30px;
   }
 
   .img-port {
-    width: 260px;
-    height: 350px;
+      width: 260px;
+      height: 350px;
   }
 
   section.portfolio {
-    padding: 40px 4%;
+      padding: 40px 4%;
   }
 }

@@ -1,43 +1,76 @@
-<!-- Contato - Squad I -->
+<!--
+=========================================================
+ARQUIVO: contato.html
+SQUAD: I
+OBJETIVO: Exibir o formulário de contato para os usuários.
+REFATORAÇÃO APLICADA:
+- Clean Code (Semântica): Envolvimento do formulário com a tag <main>. Padronização do menu (<nav>) para usar listas (<ul> e <li>), mantendo consistência com o resto do projeto.
+- Clean Code (Formulário): Preenchimento dos atributos 'name' e 'id' nos inputs (estavam vazios).
+- Otimização (UX/Mobile): Troca do type="text" por type="email" e type="tel". Isso faz com que o teclado correto (com @ ou teclado numérico) abra no celular do usuário.
+- Otimização (Acessibilidade): Adição do atributo 'aria-label' nos inputs, permitindo que leitores de tela entendam o que cada campo significa, já que o design não utiliza tags <label> visíveis.
+=========================================================
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contato - Squad I</title>
-  <link rel="stylesheet" href="styles/contato.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Otimização [SEO]: Descrição da página para motores de busca -->
+    <meta name="description" content="Entre em contato com o Squad I. Preencha o formulário para orçamentos, dúvidas ou parcerias.">
+    
+    <title>Contato - Squad I</title>
+    <link rel="stylesheet" href="styles/contato.css">
 </head>
 
 <body>
-  <header>
-    <h1>SQUAD I</h1>
+    <header>
+        <!-- Clean Code: Menu padronizado com a mesma estrutura da página de sucessos -->
+        <nav class="menu" aria-label="Navegação Principal">
+            <h1 class="logo">SQUAD <span>I</span></h1>
+            <ul>
+                <li><a href="home.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="depoimentos.html">Depoimentos</a></li>
+                <li><a href="case-de-sucesso.html">Sucessos</a></li>
+                <!-- Otimização [Acessibilidade]: aria-current indica a página atual -->
+                <li><a href="contato.html" class="ativo" aria-current="page">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <nav>
-      <a href="home.html">Início</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="habilidades.html">Habilidades</a>
-      <a href="projetos.html">Projetos</a>
-      <a href="servicos.html">Serviços</a>
-      <a href="depoimentos.html">Depoimentos</a>
-      <a href="case-de-sucesso.html">Sucessos</a>
-      <a href="contato.html">Contato</a>
-    </nav>
-  </header>
+    <!-- Clean Code: Todo conteúdo único da página deve estar em uma tag <main> -->
+    <main>
+        <section class="formulario" aria-labelledby="titulo-contato">
+            <div class="interface">
+                <h2 id="titulo-contato" class="titulo">FALE <span>CONOSCO.</span></h2>
 
-  <section class="formulario">
-    <div class="interface">
-      <h2 class="titulo">FALE <span>CONOSCO.</span></h2>
-
-      <form action="">
-        <input type="text" name="" id="" placeholder="Seu nome completo:" required>
-        <input type="text" name="" id="" placeholder="Seu e-mail:" required>
-        <input type="text" name="" id="" placeholder="Seu celular:">
-        <textarea name="" id="" placeholder="Sua mensagem" required></textarea>
-        <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
-      </form>
-    </div>
-  </section>
+                <!-- Otimização: Inclusão de method="POST" (padrão recomendado para envio de dados sensíveis/formulários) -->
+                <form action="" method="POST">
+                    <!-- 
+                        Refatoração de Inputs: 
+                        1. id e name preenchidos (obrigatório para o formulário funcionar no back-end).
+                        2. type="email" e type="tel" adicionados para melhorar a usabilidade em celulares.
+                        3. aria-label adicionado para garantir acessibilidade, já que não há uma tag <label> visual.
+                    -->
+                    <input type="text" name="nome" id="nome" placeholder="Seu nome completo:" aria-label="Seu nome completo" required>
+                    
+                    <input type="email" name="email" id="email" placeholder="Seu e-mail:" aria-label="Seu e-mail" required>
+                    
+                    <input type="tel" name="celular" id="celular" placeholder="Seu celular:" aria-label="Seu celular">
+                    
+                    <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem" aria-label="Sua mensagem" required></textarea>
+                    
+                    <div class="btn-enviar">
+                        <input type="submit" value="ENVIAR">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>

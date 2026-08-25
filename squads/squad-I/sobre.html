@@ -1,66 +1,74 @@
+<!--
+=========================================================
+ARQUIVO: sobre.html
+SQUAD: I
+OBJETIVO: Exibir a biografia e a história das integrantes do Squad I.
+REFATORAÇÃO APLICADA:
+- Clean Code (Semântica): Correção estrutural do menu, envolvendo corretamente os links `<a>` dentro de tags `<li>`. Envolvimento do miolo principal com <main> e substituição das divs de perfil por <article>.
+- Otimização (Acessibilidade & SEO): Inclusão de meta description, atributos aria-current no link ativo e melhoria na hierarquia de títulos (uso de <h3> nos nomes das integrantes para evitar conflito com o <h2> principal).
+=========================================================
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Otimização [SEO]: Descrição da página para motores de busca -->
+    <meta name="description" content="Conheça a trajetória profissional e acadêmica das integrantes do Squad I: Mariane, Camila, Evelyn e Ana Carolina.">
+    
     <title>Squad I - Sobre</title>
     <link rel="stylesheet" href="styles/sobre.css">
 </head>
 
 <body>
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
     <header>
-        <nav class="menu">
+        <nav class="menu" aria-label="Navegação Principal">
             <h1 class="logo">SQUAD I</h1>
             <ul>
-                <a href="home.html">Início</a>
-                <a href="sobre.html" class="ativo">Sobre</a>
-                <a href="habilidades.html">Habilidades</a>
-                <a href="projetos.html">Projetos</a>
-                <a href="servicos.html">Serviços</a>
-                <a href="depoimentos.html">Depoimentos</a>
-                <a href="case-de-sucesso.html">Sucessos</a>
-                <a href="contato.html">Contato</a>
+                <li><a href="home.html">Início</a></li>
+                <!-- Otimização [Acessibilidade]: aria-current indica a página atual -->
+                <li><a href="sobre.html" class="ativo" aria-current="page">Sobre</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="depoimentos.html">Depoimentos</a></li>
+                <li><a href="case-de-sucesso.html">Sucessos</a></li>
+                <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="sobre-container">
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <section class="sobre-container" aria-label="Sobre a Equipe">
+            <h2 class="titulo">CONHEÇA <span>NOSSO SQUAD.</span></h2>
 
-        <h2 class="titulo">CONHEÇA <span>NOSSO SQUAD.</span></h2>
+            <div class="flex">
+                <!-- Clean Code: Substituição de div genérica por <article> e ajuste de <h2> para <h3> -->
+                <article class="perfil">
+                    <h3>Mariane Caldeira</h3>
+                    <p>É estudante de Análise e Desenvolvimento de Sistemas, com cinco anos de experiência na área de tecnologia. Ao longo de sua trajetória acadêmica e prática, desenvolveu conhecimentos em programação e soluções web, buscando constante evolução profissional.</p>
+                </article>
 
-        <div class="flex">
+                <article class="perfil">
+                    <h3>Camila Catarina</h3>
+                    <p>É desenvolvedora Full Stack, com interesse em se especializar em Segurança da Informação, focando na proteção e integridade de dados corporativos e de usuários.</p>
+                </article>
 
-            <div class="perfil">
-                <h2>Mariane Caldeira</h2>
-                <p>É estudante de Análise e Desenvolvimento de Sistemas, com cinco anos de experiência na área de
-                    tecnologia. Ao longo de sua trajetória acadêmica e prática, desenvolveu conhecimentos em programação
-                    e soluções web, buscando constante evolução profissional.</p>
+                <article class="perfil">
+                    <h3>Evelyn Santos</h3>
+                    <p>É estudante de Análise e Desenvolvimento de Sistemas, atuando também como freelancer em eventos. Está em processo de aprendizado de inglês e valoriza o aprimoramento contínuo como parte de seu desenvolvimento profissional.</p>
+                </article>
+
+                <article class="perfil">
+                    <h3>Ana Carolina</h3>
+                    <p>É estudante de Análise e Desenvolvimento de Sistemas, atualmente no primeiro período, interessada em tecnologia, inovação e soluções digitais.</p>
+                </article>
             </div>
-
-            <div class="perfil">
-                <h2>Camila Catarina</h2>
-                <p>Está no terceiro período de Segurança do Trabalho e no primeiro período de Análise e Desenvolvimento
-                    de Sistemas, com interesse em se especializar em Segurança da Informação, focando na proteção e
-                    integridade de dados corporativos e de usuários.</p>
-            </div>
-
-            <div class="perfil">
-                <h2>Evelyn Santos</h2>
-                <p>É estudante de Análise e Desenvolvimento de Sistemas, atuando também como freelancer em eventos. Está
-                    em processo de aprendizado de inglês e valoriza o aprimoramento contínuo como parte de seu
-                    desenvolvimento profissional.</p>
-            </div>
-
-            <div class="perfil">
-                <h2>Ana Carolina</h2>
-                <p>É estudante de Análise e Desenvolvimento de Sistemas, atualmente no primeiro período, interessada em
-                    tecnologia, inovação e soluções digitais.</p>
-            </div>
-
-        </div>
-
-    </section>
+        </section>
+    </main>
 </body>
 
 </html>

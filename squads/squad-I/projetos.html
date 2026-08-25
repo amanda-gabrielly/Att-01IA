@@ -1,43 +1,76 @@
+<!--
+=========================================================
+ARQUIVO: projetos.html
+SQUAD: I
+OBJETIVO: Exibir a galeria de projetos desenvolvidos pela equipe.
+REFATORAÇÃO APLICADA:
+- Clean Code (Semântica): Padronização do menu de navegação (<nav>) com listas (<ul> e <li>). Envolvimento do conteúdo principal com <main> e substituição das divs dos cards por <article>.
+- Otimização (Acessibilidade & SEO): Inclusão de meta description, atributos aria-current no link ativo do menu, e aria-label na galeria de portfólio.
+=========================================================
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projetos - Squad I</title>
-  <link rel="stylesheet" href="styles/projetos.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Otimização [SEO]: Descrição da página para motores de busca -->
+    <meta name="description" content="Conheça os projetos de destaque desenvolvidos pela equipe do Squad I.">
+    
+    <title>Projetos - Squad I</title>
+    <link rel="stylesheet" href="styles/projetos.css">
 </head>
 
 <body>
-  <header>
-    <h1>SQUAD I</h1>
-    <nav>
-      <a href="home.html">Início</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="habilidades.html">Habilidades</a>
-      <a href="projetos.html">Projetos</a>
-      <a href="servicos.html">Serviços</a>
-      <a href="depoimentos.html">Depoimentos</a>
-      <a href="case-de-sucesso.html">Sucessos</a>
-      <a href="contato.html">Contato</a>
-    </nav>
-  </header>
-  <section class="portfolio">
-    <div class="interface">
-      <h2 class="titulo">NOSSOS <span>PROJETOS.</span></h2>
-      <div class="flex">
-        <div class="img-port" style="background-image: url(img/imagem.jpg);">
-          <div class="overlay">Projeto 1</div>
-        </div>
-        <div class="img-port" style="background-image: url(img/imagem.jpg);">
-          <div class="overlay">Projeto 2</div>
-        </div>
-        <div class="img-port" style="background-image: url(img/imagem.jpg);">
-          <div class="overlay">Projeto 3</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
+    <header>
+        <h1>SQUAD <span>I</span></h1>
+        
+        <!-- Clean Code: Padronizado com lista para manter consistência com as demais páginas -->
+        <nav aria-label="Navegação Principal">
+            <ul>
+                <li><a href="home.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <!-- Otimização [Acessibilidade]: aria-current indica a página atual -->
+                <li><a href="projetos.html" class="ativo" aria-current="page">Projetos</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="depoimentos.html">Depoimentos</a></li>
+                <li><a href="case-de-sucesso.html">Sucessos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <section class="portfolio" aria-label="Galeria de Projetos">
+            <div class="interface">
+                <h2 class="titulo">NOSSOS <span>PROJETOS.</span></h2>
+                
+                <div class="flex">
+                    <!-- Clean Code: Substituição de div genérica por <article> -->
+                    <article class="img-port" style="background-image: url('img/imagem.jpg');" role="img" aria-label="Prévia do Projeto 1">
+                        <div class="overlay">
+                            <h3>Projeto 1</h3>
+                        </div>
+                    </article>
+
+                    <article class="img-port" style="background-image: url('img/imagem.jpg');" role="img" aria-label="Prévia do Projeto 2">
+                        <div class="overlay">
+                            <h3>Projeto 2</h3>
+                        </div>
+                    </article>
+
+                    <article class="img-port" style="background-image: url('img/imagem.jpg');" role="img" aria-label="Prévia do Projeto 3">
+                        <div class="overlay">
+                            <h3>Projeto 3</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
