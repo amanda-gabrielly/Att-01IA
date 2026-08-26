@@ -1,0 +1,85 @@
+:root {
+  --primary-blue: #276ef1;
+  --primary-blue-dark: #154bb8;
+  --background: #fff;
+  --text-main: #222;
+  --text-muted: #607d8b;
+  --primary-hover: #1f57c3;
+  --bg-page: #f0f4f8;
+  --bg-white: #ffffff;
+  --border-color: #d1d9e6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--background);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+.site-header,
+header {
+  background: var(--primary-blue);
+  color: white;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(17, 63, 114, 0.07);
+}
+
+.logo a {
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 5px;
+  transition: background .2s;
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+  background: var(--primary-blue-dark);
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+footer {
+  background: #212b36;
+  color: #fff;
+  font-size: 1rem;
+  width: 100%;
+  padding: 1.3em 2em;
+  text-align: center;
+  margin-top: auto;
+}

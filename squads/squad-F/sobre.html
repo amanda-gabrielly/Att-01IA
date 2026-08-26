@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre - Portfólio</title>
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="sobre.css"> 
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/sobre.css">
+    <script src="scripts/members.js" defer></script>
 </head>
 <body>
 
     <header class="site-header">
         <div class="logo">
-            <a href="index.html">Portfólio</a>
+            <a href="home.html">Portfólio</a>
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#" class="active">Sobre</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="sobre.html" class="active">Sobre</a></li>
                 <li><a href="contato.html">Contato</a></li>
                 <li><a href="projetos.html">Projetos</a></li> 
                 <li><a href="habilidades.html">Habilidades</a></li>
@@ -71,32 +72,7 @@
         <section class="section-equipe">
             <h2>Destaque da Equipe (4 Membros)</h2>
             
-            <div class="team-grid-container">
-                
-                <article class="member-card">
-                    <img src="./styles/membro1.jpeg" alt="Foto do Desenvolvedor Front-end.">
-                    <h3>Daniel Augusto</h3>
-                    <p class="role">Front-end Lead</p>
-                </article>
-
-                <article class="member-card">
-                    <img src="./styles/membro2.jpeg" alt="Foto do Desenvolvedor Back-end.">
-                    <h3>Membro 2</h3>
-                    <p class="role">Back-end Developer</p>
-                </article>
-                
-                <article class="member-card">
-                    <img src="./styles/membro3.jpeg" alt="Foto do Especialista em QA.">
-                    <h3>Membro 3</h3>
-                    <p class="role">QA Engineer</p>
-                </article>
-                
-                <article class="member-card">
-                    <img src="./styles/membro4.jpeg" alt="Foto do Designer/UX.">
-                    <h3>Membro 4</h3>
-                    <p class="role">UI/UX Designer</p>
-                </article>
-            </div>
+            <div class="team-grid-container" data-members data-view="about"></div>
         </section>
         
     </main>
