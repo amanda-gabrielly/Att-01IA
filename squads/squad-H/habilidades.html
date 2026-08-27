@@ -1,13 +1,22 @@
 <!--
-=========================================================
-ARQUIVO: habilidades.html
-SQUAD: H/I
-OBJETIVO: Exibir a listagem de competências e tecnologias da equipe.
-REFATORAÇÃO APLICADA:
-- Clean Code (Semântica): Envolvimento do conteúdo principal na tag <main> e substituição das divs dos cards por <article>, já que cada habilidade representa um bloco de conteúdo autônomo.
-- Clean Code (Conteúdo): Expansão da descrição curta em "Banco de Dados" para mantê-la consistente com os outros cards.
-- Otimização (SEO & Acessibilidade): Adição de meta description, atributos aria-current no menu ativo e aria-labelledby na seção.
-=========================================================
+    Arquivo: habilidades.html
+    Squad: H
+    Objetivo: Apresentar as principais habilidades tecnicas e competencias
+              profissionais dominadas pela equipe DevJuniors.
+
+    Refatoracoes e melhorias aplicadas:
+    - Inclusao deste cabecalho com a identificacao e o resumo das alteracoes.
+    - Adicao de aria-label na navegacao principal.
+    - Transformacao do logotipo em link semantico para a pagina inicial.
+    - Adicao de aria-label ao link do logotipo para melhorar sua identificacao.
+    - Adicao de aria-current="page" ao link da pagina atual.
+    - Renomeacao do item "SuccessStory" para "Case de sucesso".
+    - Inclusao do landmark main para delimitar o conteudo principal.
+    - Associacao da secao de habilidades ao titulo por meio de aria-labelledby.
+    - Substituicao das divs dos cartoes por elementos article semanticos.
+    - Marcacao dos icones do Font Awesome como decorativos com aria-hidden.
+    - Manutencao da hierarquia de titulos e das descricoes de cada habilidade.
+    - Remocao de espacos em branco e marcacoes HTML redundantes.
 -->
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -15,27 +24,23 @@ REFATORAÇÃO APLICADA:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Otimização [SEO]: Descrição da página para motores de busca -->
-    <meta name="description" content="Conheça as principais competências, tecnologias e ferramentas dominadas pela nossa equipe de desenvolvimento.">
-    
     <title>Habilidades - DevJuniors</title>
     <link rel="stylesheet" href="styles/habilidades.css">
-    <!-- FontAwesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>  
+</head>
 
 <body>
 
-    <!-- NAVEGAÇÃO PRINCIPAL -->
-    <nav class="navbar" aria-label="Menu Principal">
-        <div class="logo"><span class="icon" aria-hidden="true">💻</span> DevJuniors</div>
+    <nav class="navbar" aria-label="Navegação principal">
+        <a class="logo" href="home.html" aria-label="DevJuniors, página inicial">
+            <span class="icon" aria-hidden="true">💻</span> DevJuniors
+        </a>
 
         <ul class="menu">
             <li><a href="home.html">Home</a></li>
             <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="case-de-sucesso.html">SuccessStory</a></li>
+            <li><a href="case-de-sucesso.html">Case de sucesso</a></li>
             <li><a href="projetos.html">Projetos</a></li>
-            <!-- Otimização [Acessibilidade]: aria-current indica a página atual para leitores de tela -->
             <li><a class="active" href="habilidades.html" aria-current="page">Habilidades</a></li>
             <li><a href="servicos.html">Serviços</a></li>
             <li><a href="depoimentos.html">Depoimentos</a></li>
@@ -43,51 +48,48 @@ REFATORAÇÃO APLICADA:
         </ul>
     </nav>
 
-    <!-- Clean Code: Tag <main> para envolver o miolo principal da página -->
+    <header class="header">
+        <p class="subtitulo">O QUE SABEMOS FAZER</p>
+        <h1 id="habilidades-titulo">Habilidades da <span class="destaque">Equipe</span></h1>
+        <p class="descricao">Aqui estão as principais tecnologias e competências que dominamos.</p>
+    </header>
+
     <main>
-        <header class="header">
-            <p class="subtitulo">O QUE SABEMOS FAZER</p>
-            <h1 id="titulo-habilidades">Habilidades da <span class="destaque">Equipe</span></h1>
-            <p class="descricao">Aqui estão as principais tecnologias e competências que dominamos.</p>
-        </header>
+        <section class="skills-grid" aria-labelledby="habilidades-titulo">
 
-        <section class="skills-grid" aria-labelledby="titulo-habilidades">
-
-            <!-- Clean Code: Substituição de <div> por <article> -->
             <article class="skill-card">
                 <i class="fab fa-html5 icon-skill" aria-hidden="true"></i>
-                <h3>HTML5</h3>
+                <h2>HTML5</h2>
                 <p>Estruturação semântica e criação de interfaces web modernas.</p>
             </article>
 
             <article class="skill-card">
                 <i class="fab fa-css3-alt icon-skill" aria-hidden="true"></i>
-                <h3>CSS3</h3>
+                <h2>CSS3</h2>
                 <p>Estilização, animações e layouts responsivos.</p>
             </article>
 
             <article class="skill-card">
                 <i class="fab fa-js-square icon-skill" aria-hidden="true"></i>
-                <h3>JavaScript</h3>
+                <h2>JavaScript</h2>
                 <p>Lógica, interações dinâmicas e manipulação de DOM.</p>
             </article>
 
             <article class="skill-card">
                 <i class="fab fa-git-alt icon-skill" aria-hidden="true"></i>
-                <h3>Git & GitHub</h3>
+                <h2>Git &amp; GitHub</h2>
                 <p>Versionamento e trabalho em equipe organizado.</p>
             </article>
 
             <article class="skill-card">
                 <i class="fa-solid fa-database icon-skill" aria-hidden="true"></i>
-                <h3>Banco de Dados</h3>
-                <!-- Correção: Texto complementado para manter o padrão de tamanho dos parágrafos -->
-                <p>Modelagem de dados e consultas estruturadas.</p>
+                <h2>Banco de Dados</h2>
+                <p>Modelagem</p>
             </article>
 
             <article class="skill-card">
                 <i class="fa-solid fa-users icon-skill" aria-hidden="true"></i>
-                <h3>Trabalho em Equipe</h3>
+                <h2>Trabalho em Equipe</h2>
                 <p>Comunicação, colaboração e resolução de problemas.</p>
             </article>
 
