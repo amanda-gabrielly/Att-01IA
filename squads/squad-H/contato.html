@@ -1,3 +1,30 @@
+<!--
+    Arquivo: contato.html
+    Squad: H
+    Objetivo: Disponibilizar um formulario de contato e os canais de comunicacao
+              da equipe DevJuniors para novos projetos e mensagens.
+
+    Refatoracoes e melhorias aplicadas:
+    - Adicao deste cabecalho documentando o arquivo, o squad, o objetivo e as mudancas.
+    - Manutencao da declaracao de idioma como portugues do Brasil.
+    - Adicao de aria-label na navegacao principal.
+    - Transformacao do logotipo em link semantico para a pagina inicial.
+    - Adicao de aria-label ao link do logotipo para identifica-lo com clareza.
+    - Adicao de aria-current="page" ao link da pagina atual.
+    - Renomeacao de "SuccessStory" para "Case de sucesso".
+    - Remocao de comentarios HTML redundantes usados apenas como separadores visuais.
+    - Inclusao do landmark main para delimitar o conteudo principal.
+    - Associacao da secao de contato ao titulo por meio de aria-labelledby.
+    - Associacao de todos os labels aos respectivos campos com for e id.
+    - Adicao dos atributos name, autocomplete e identificadores aos campos do formulario.
+    - Adicao de aria-labelledby ao formulario para fornecer contexto ao leitor de tela.
+    - Definicao de rows na textarea para uma dimensao inicial acessivel e previsivel.
+    - Adicao de links telefonicos acionaveis para os telefones da equipe.
+    - Adicao de links para os perfis do Instagram com relacao segura para novas abas.
+    - Marcacao dos emojis decorativos com aria-hidden="true".
+    - Organizacao dos contatos em aside, section e article com titulos hierarquicos.
+    - Substituicao dos titulos dos integrantes de h2 para h3, mantendo a hierarquia correta.
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -10,111 +37,105 @@
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="logo">
-            <span class="icon">💻</span> DevJuniors
-        </div>
+    <nav class="navbar" aria-label="Navegacao principal">
+        <a class="logo" href="home.html" aria-label="DevJuniors, pagina inicial">
+            <span class="icon" aria-hidden="true">💻</span> DevJuniors
+        </a>
 
         <ul class="menu">
             <li><a href="home.html">Home</a></li>
             <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="case-de-sucesso.html">SuccessStory</a></li>
+            <li><a href="case-de-sucesso.html">Case de sucesso</a></li>
             <li><a href="projetos.html">Projetos</a></li>
             <li><a href="habilidades.html">Habilidades</a></li>
             <li><a href="servicos.html">Serviços</a></li>
             <li><a href="depoimentos.html">Depoimentos</a></li>
-            <li><a href="contato.html" class="active">Contato</a></li>
+            <li><a href="contato.html" class="active" aria-current="page">Contato</a></li>
         </ul>
     </nav>
 
-    <!-- HEADER -->
     <header class="header">
         <p class="subtitulo">ENTRE EM CONTATO</p>
-        <h1>Vamos Trabalhar <span class="destaque">Juntos</span></h1>
+        <h1 id="contato-titulo">Vamos Trabalhar <span class="destaque">Juntos</span></h1>
         <p class="descricao">
             Tem um projeto em mente? Entre em contato e vamos transformar suas ideias em realidade!
         </p>
     </header>
 
-    <!-- CONTEÚDO -->
-    <section class="contato-container">
+    <main>
+        <section class="contato-container" aria-labelledby="contato-titulo">
+            <form class="formulario" aria-labelledby="formulario-titulo" method="post">
+                <h2 id="formulario-titulo">Envie uma mensagem</h2>
 
-        <!-- FORMULÁRIO -->
-        <form class="formulario">
+                <div class="linha">
+                    <div class="campo">
+                        <label for="nome">Nome</label>
+                        <input id="nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required>
+                    </div>
 
-            <div class="linha">
-                <div class="campo">
-                    <label>Nome</label>
-                    <input type="text" placeholder="Seu nome">
+                    <div class="campo">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" required>
+                    </div>
                 </div>
 
                 <div class="campo">
-                    <label>Email</label>
-                    <input type="email" placeholder="seu@email.com">
+                    <label for="assunto">Assunto</label>
+                    <input id="assunto" name="assunto" type="text" placeholder="Assunto da mensagem" autocomplete="off" required>
                 </div>
-            </div>
 
-            <div class="campo">
-                <label>Assunto</label>
-                <input type="text" placeholder="Assunto da mensagem">
-            </div>
+                <div class="campo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="6" placeholder="Descreva seu projeto ou ideia..." required></textarea>
+                </div>
 
-            <div class="campo">
-                <label>Mensagem</label>
-                <textarea placeholder="Descreva seu projeto ou ideia..."></textarea>
-            </div>
+                <button type="submit" class="btn-enviar">
+                    <span aria-hidden="true">✉️</span> Enviar mensagem
+                </button>
+            </form>
 
-            <button type="submit" class="btn-enviar">✉️ Enviar Mensagem</button>
-        </form>
-
-        <!-- LADO DIREITO -->
-        <div class="contatos-lista">
-
-            <!-- EQUIPE -->
-            <div class="card-info">
-                <section class="contatos-equipe">
+            <aside class="contatos-lista" aria-labelledby="contatos-titulo">
+                <section class="card-info contatos-equipe">
+                    <h2 id="contatos-titulo">Fale com nossa equipe</h2>
                     <div class="integrantes-grid">
+                        <article class="card-integrante">
+                            <h3>Carla Paraguaio</h3>
+                            <p><span aria-hidden="true">📞</span> <a href="tel:+5581985975171">(81) 98597-5171</a></p>
+                            <p><span aria-hidden="true">📷</span> <a href="https://www.instagram.com/carlinhadoparaguaio/" target="_blank" rel="noopener noreferrer">@carlinhadoparaguaio</a></p>
+                        </article>
 
-                        <div class="card-integrante">
-                            <h2>Carla Paraguaio</h2>
-                            <p>📞 (81) 98597-5171</p>
-                            <p>📷 @carlinhadoparaguaio</p>
-                        </div>
+                        <article class="card-integrante">
+                            <h3>Cleidiane Silva</h3>
+                            <p><span aria-hidden="true">📞</span> <a href="tel:+5581986785840">(81) 98678-5840</a></p>
+                            <p><span aria-hidden="true">📷</span> <a href="https://www.instagram.com/cleidianeccesilva/" target="_blank" rel="noopener noreferrer">@cleidianeccesilva</a></p>
+                        </article>
 
-                        <div class="card-integrante">
-                            <h2>Cleidiane Silva</h2>
-                            <p>📞 (81) 98678-5840</p>
-                            <p>📷 @cleidianeccesilva</p>
-                        </div>
+                        <article class="card-integrante">
+                            <h3>Joao Gabriel Franca</h3>
+                            <p><span aria-hidden="true">📞</span> <a href="tel:+5581991009623">(81) 99100-9623</a></p>
+                            <p><span aria-hidden="true">📷</span> <a href="https://www.instagram.com/jg_biel19/" target="_blank" rel="noopener noreferrer">@jg_biel19</a></p>
+                        </article>
 
-                        <div class="card-integrante">
-                            <h2>João Gabriel França</h2>
-                            <p>📞 (81) 99100-9623</p>
-                            <p>📷 @jg_biel19</p>
-                        </div>
-
-                        <div class="card-integrante">
-                            <h2>Uilson Nascimento</h2>
-                            <p>📞 (81) 99169-6781</p>
-                            <p>📷 @_uilson</p>
-                        </div>
+                        <article class="card-integrante">
+                            <h3>Uilson Nascimento</h3>
+                            <p><span aria-hidden="true">📞</span> <a href="tel:+5581991696781">(81) 99169-6781</a></p>
+                            <p><span aria-hidden="true">📷</span> <a href="https://www.instagram.com/_uilson/" target="_blank" rel="noopener noreferrer">@_uilson</a></p>
+                        </article>
 
                     </div>
                 </section>
-            </div>
 
-            <!-- LOCALIZAÇÃO -->
-            <div class="card-info">
-                <div class="icon-card">📍</div>
-                <div>
-                    <h3>Localização</h3>
-                    <p>Recife - PE</p>
-                </div>
-            </div>
+                <section class="card-info" aria-labelledby="localizacao-titulo">
+                    <div class="icon-card" aria-hidden="true">📍</div>
+                    <div>
+                        <h2 id="localizacao-titulo">Localização</h2>
+                        <address>Recife - PE</address>
+                    </div>
+                </section>
+            </aside>
 
-        </div>
-    </section>
+        </section>
+    </main>
 
 </body>
 </html>
