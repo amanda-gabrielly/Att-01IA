@@ -6,7 +6,7 @@ body {
                margin: 30px;
   background-color: #584099;
   color: white;
-  padding-bottom: -50px;
+  padding-bottom: 30px;
   justify-content: center;
 }
 
@@ -20,7 +20,7 @@ body {
   padding: 10px;
   justify-content:space-evenly;
   height: 100vh;
-  gap: -20px;
+  gap: 20px;
   background-color: transparent;
    & .ui-ux-design, .desenvolvimento-web, .desen-app, .design-grafico {
     background: radial-gradient(circle at 50% 10%, rgba(38, 77, 228, 0.7), rgb(119, 89, 139)) !important;

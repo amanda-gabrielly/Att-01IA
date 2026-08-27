@@ -3,9 +3,8 @@
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
                'Segoe UI', sans-serif;
-               margin: 40px;
-               background-image: linear-gradient(270deg, #8800f8, #bd88f3);
                margin: 20px;
+               background-image: linear-gradient(270deg, #8800f8, #bd88f3);
                height: 100vh;
 }
 
@@ -38,7 +37,6 @@ ul {
 }
 
 li {
-  
   margin: 0 15px;
   padding: 15px 25px;
   background-color: #C27CFA;
@@ -93,7 +91,7 @@ h1 {
     } 
 } 
 
-#github, #linkedin{
+#github, #linkedin {
     display: inline-block;
     padding: 10px 15px;
     text-decoration: none;
