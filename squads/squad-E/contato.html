@@ -1,35 +1,87 @@
-<!-- Contato - Squad E -->
+<!--
+  Arquivo: contato.html | Squad E
+  Objetivo: apresentar o formulario de contato e a localizacao da equipe.
+  Refatoracoes: semantica HTML5, acessibilidade dos campos, SEO basico,
+  correcao de atributos e integracao com estilos responsivos.
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Entre em contato com o Squad E para conversar sobre projetos digitais." />
   <title>Contato - Squad E</title>
+  <link rel="stylesheet" href="styles/contato.css" />
 </head>
 <body>
-  <h1>Entre em Contato</h1>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="home.html">Squad E</a>
+      <nav aria-label="Navegação principal">
+        <a href="home.html">Home</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="contato.html" aria-current="page">Contato</a>
+      </nav>
+    </div>
+  </header>
 
-  <form action="#" method="post" enctype="multipart/form-data">
+  <main class="container">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">Vamos conversar</p>
+      <h1 id="page-title">Entre em contato</h1>
+      <p>Conte um pouco sobre o seu projeto. Nossa equipe retornará em breve.</p>
+    </section>
 
-  <label for="nome">Nome Completo:</label><br>
-  <input for="text" id="nome" name="nome" required><br><br>
+    <div class="contact-grid">
+      <section class="panel" aria-labelledby="form-title">
+        <h2 id="form-title">Envie uma mensagem</h2>
+        <form action="#" method="post">
+          <div class="field">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" autocomplete="name" required />
+          </div>
 
-  <label for="email">E-mail:</label><br>
-  <input type="email" name="email" id="email" required><br><br>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+          </div>
 
-  <label for="telefone">Telefone:</label><br>
-  <input type="tel" name="telefone" id="telefone"><br><br> 
+          <div class="field">
+            <label for="telefone">Telefone <span>(opcional)</span></label>
+            <input type="tel" id="telefone" name="telefone" autocomplete="tel" />
+          </div>
 
-  <label for="assunto">Assunto:</label><br>
-  <select id="assunto" name="assunto" required>
-    <option value="">Selecione...</option>
-    <option>Instagram</option>
-    <option>GitHub</option>
-    <option>Linkedin</option>
-  </select><br><br>
-</form>
-<hr>
-  <h2>Localização</h2>
-  <iframe src="https://www.google.com/maps/place/FICR+-+Faculdade+Imaculada+Concei%C3%A7%C3%A3o+do+Recife/@-8.0409652,-34.9418507,17z/data=!3m1!4b1!4m5!3m4!1s0x7ab199240000001:0xca8aee19ccd4b76f!8m2!3d-8.0409652!4d-34.9401095?shorturl=1" frameborder="0">
-  </iframe>
+          <div class="field">
+            <label for="assunto">Assunto</label>
+            <select id="assunto" name="assunto" required>
+              <option value="">Selecione uma opção</option>
+              <option value="instagram">Instagram</option>
+              <option value="github">GitHub</option>
+              <option value="linkedin">LinkedIn</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+          </div>
+
+          <button type="submit">Enviar mensagem</button>
+        </form>
+      </section>
+
+      <section class="panel location" aria-labelledby="location-title">
+        <h2 id="location-title">Localização</h2>
+        <p>Faculdade Imaculada Conceição do Recife</p>
+        <iframe
+          src="https://www.google.com/maps?q=FICR+Recife&output=embed"
+          title="Mapa da localização da FICR em Recife"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </section>
+    </div>
+  </main>
 </body>
 </html>
