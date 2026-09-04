@@ -1,80 +1,96 @@
-<!-- Case de Sucesso - Squad I -->
+<!--
+=========================================================
+ARQUIVO: case-de-sucesso.html (ou sucessos.html)
+SQUAD: I
+OBJETIVO: Exibir a listagem de cases de sucesso da equipe.
+REFATORAÇÃO APLICADA:
+- Clean Code (Correção de Bug): Tags <a> que estavam soltas dentro da <ul> foram envolvidas em tags <li> (regra obrigatória do HTML).
+- Clean Code (Semântica): Inclusão da tag <main> e substituição das <div> dos cards pela tag <article> (já que cada case é um conteúdo independente).
+- Otimização: Inclusão de meta description (SEO) e atributos ARIA para acessibilidade.
+- Documentação: Comentários explicativos sobre as escolhas estruturais.
+=========================================================
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case de Sucesso - Squad I</title>
-  <link rel="stylesheet" href="styles/case-de-sucesso.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Otimização [SEO]: Descrição da página para melhorar o ranqueamento no Google -->
+    <meta name="description" content="Conheça os cases de sucesso do Squad I: desenvolvimento de sites institucionais, lojas online, blogs e landing pages.">
+    
+    <title>Case de Sucesso - Squad I</title>
+    <link rel="stylesheet" href="styles/case-de-sucesso.css">
 </head>
 
 <body>
-  <header>
-    <nav class="menu">
-      <h1 class="logo">SQUAD <span>I</span></h1>
-      <ul>
-        <a href="home.html">Início</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="habilidades.html">Habilidades</a>
-        <a href="projetos.html">Projetos</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="depoimentos.html">Depoimentos</a>
-        <a href="sucessos.html">Sucessos</a>
-        <a href="contato.html">Contato</a>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <!-- Otimização [Acessibilidade]: aria-label descreve a região de navegação para leitores de tela -->
+        <nav class="menu" aria-label="Navegação Principal">
+            <h1 class="logo">SQUAD <span>I</span></h1>
+            <ul>
+                <!-- Clean Code: Correção de sintaxe. A tag <ul> (lista) só aceita <li> como filhos diretos, não <a> -->
+                <li><a href="home.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="depoimentos.html">Depoimentos</a></li>
+                <!-- Otimização [Acessibilidade]: aria-current sinaliza para sistemas de acessibilidade qual é a página ativa -->
+                <li><a href="sucessos.html" class="ativo" aria-current="page">Sucessos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <section class="cases-container">
-    <h2 class="titulo">CASES DE <span>SUCESSOS.</span></h2>
+    <!-- Clean Code: A tag <main> engloba o conteúdo central e único da página -->
+    <main>
+        <section class="cases-container" aria-labelledby="titulo-cases">
+            <h2 id="titulo-cases" class="titulo">CASES DE <span>SUCESSOS.</span></h2>
 
-    <div class="cases-grid">
+            <div class="cases-grid">
 
-      <div class="case-card">
-        <h3>Site Institucional — Bella Estética</h3>
-        <p class="case-desc">
-          Desenvolvimento de um website moderno e responsivo para um pequeno estúdio de estética.
-          Focado em apresentação de serviços, contato e identidade visual clean.
-        </p>
-        <p class="skills-used"><strong>Habilidades envolvidas:</strong> HTML, CSS, organização visual, lógica de
-          navegação.</p>
-        <span class="tag">Website</span>
-      </div>
+                <!-- Clean Code: Substituição de <div> por <article>. Como cada projeto faz sentido por si só, <article> é a tag semântica correta. -->
+                <article class="case-card">
+                    <h3>Site Institucional — Bella Estética</h3>
+                    <p class="case-desc">
+                        Desenvolvimento de um website moderno e responsivo para um pequeno estúdio de estética.
+                        Focado em apresentação de serviços, contato e identidade visual clean.
+                    </p>
+                    <p class="skills-used"><strong>Habilidades envolvidas:</strong> HTML, CSS, organização visual, lógica de navegação.</p>
+                    <span class="tag">Website</span>
+                </article>
 
-      <div class="case-card">
-        <h3>Loja Online — Café do Bairro</h3>
-        <p class="case-desc">
-          Criação de uma loja simples para vendas de cafés artesanais, com páginas de produtos, carrinho estático e
-          layout intuitivo.
-        </p>
-        <p class="skills-used"><strong>Habilidades envolvidas:</strong> HTML, CSS, JS básico, experiência do usuário.
-        </p>
-        <span class="tag">Loja Online</span>
-      </div>
+                <article class="case-card">
+                    <h3>Loja Online — Café do Bairro</h3>
+                    <p class="case-desc">
+                        Criação de uma loja simples para vendas de cafés artesanais, com páginas de produtos, carrinho estático e layout intuitivo.
+                    </p>
+                    <p class="skills-used"><strong>Habilidades envolvidas:</strong> HTML, CSS, JS básico, experiência do usuário.</p>
+                    <span class="tag">Loja Online</span>
+                </article>
 
-      <div class="case-card">
-        <h3>Blog — Mundo das Receitas</h3>
-        <p class="case-desc">
-          Blog desenvolvido para criadora de conteúdo, com páginas de artigos, organização por categorias e estrutura
-          limpa.
-        </p>
-        <p class="skills-used"><strong>Habilidades envolvidas:</strong> HTML, CSS, estruturação, edição e organização.
-        </p>
-        <span class="tag">Blog</span>
-      </div>
+                <article class="case-card">
+                    <h3>Blog — Mundo das Receitas</h3>
+                    <p class="case-desc">
+                        Blog desenvolvido para criadora de conteúdo, com páginas de artigos, organização por categorias e estrutura limpa.
+                    </p>
+                    <p class="skills-used"><strong>Habilidades envolvidas:</strong> HTML, CSS, estruturação, edição e organização.</p>
+                    <span class="tag">Blog</span>
+                </article>
 
-      <div class="case-card">
-        <h3>Landing Page — Curso Express</h3>
-        <p class="case-desc">
-          Página de divulgação para curso online, com foco em conversão, chamadas claras e layout responsivo.
-        </p>
-        <p class="skills-used"><strong>Habilidades envolvidas:</strong> HTML, CSS, copy básica, responsividade.</p>
-        <span class="tag">Website</span>
-      </div>
+                <article class="case-card">
+                    <h3>Landing Page — Curso Express</h3>
+                    <p class="case-desc">
+                        Página de divulgação para curso online, com foco em conversão, chamadas claras e layout responsivo.
+                    </p>
+                    <p class="skills-used"><strong>Habilidades envolvidas:</strong> HTML, CSS, copy básica, responsividade.</p>
+                    <span class="tag">Website</span>
+                </article>
 
-    </div>
-  </section>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>

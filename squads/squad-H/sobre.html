@@ -1,24 +1,45 @@
+<!--
+    Arquivo: sobre.html
+    Squad: H
+    Objetivo: Apresentar a equipe DevJuniors, sua formação, experiência,
+              competências e principais resultados de estudo e prática.
+
+    Refatoracoes e melhorias aplicadas:
+    - Inclusao deste cabecalho com a identificacao, o objetivo e as alteracoes.
+    - Transformacao do logotipo em link semantico para a pagina inicial.
+    - Adicao de aria-label no logotipo e na navegacao principal.
+    - Adicao de aria-current="page" ao link da pagina atual.
+    - Renomeacao do item "SuccessStory" para "Case de sucesso".
+    - Correcao da hierarquia de titulos, substituindo o subtitulo h3 por paragrafo.
+    - Inclusao do landmark main para delimitar o conteudo principal.
+    - Associacao do conteudo principal ao titulo por meio de aria-labelledby.
+    - Substituicao dos cartoes de metricas por elementos article semanticos.
+    - Identificacao da secao de metricas com aria-label.
+    - Marcacao dos emojis decorativos como ocultos para leitores de tela.
+    - Melhoria do texto alternativo e carregamento otimizado da imagem da equipe.
+    - Correcao de capitalizacao e remocao de espacos e linhas redundantes.
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós</title>
+    <title>Sobre nós - DevJuniors</title>
     <link rel="stylesheet" href="styles/sobre.css">
 </head>
 <body class="sobre-page">
 
     <header class="navbar">
-        <div class="logo">
-            <span class="icon">💻</span>
-            <h2>DevJuniors</h2>
-        </div>
+        <a class="logo" href="home.html" aria-label="DevJuniors, página inicial">
+            <span class="icon" aria-hidden="true">💻</span>
+            <span>DevJuniors</span>
+        </a>
 
-        <nav>
+        <nav aria-label="Navegação principal">
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="case-de-sucesso.html">SuccessStory</a></li>
+                <li><a href="sobre.html" class="active" aria-current="page">Sobre</a></li>
+                <li><a href="case-de-sucesso.html">Case de sucesso</a></li>
                 <li><a href="projetos.html">Projetos</a></li>
                 <li><a href="habilidades.html">Habilidades</a></li>
                 <li><a href="servicos.html">Serviços</a></li>
@@ -28,60 +49,62 @@
         </nav>
     </header>
 
-    <section class="sobre-section">
+    <main aria-labelledby="pagina-titulo">
+        <section class="sobre-section">
 
-        <h3 class="subtitulo">SOBRE NÓS</h3>
-        <h1 class="titulo">
-            Desenvolvedores <span class="gradiente">Apaixonados</span> por Tecnologia
-        </h1>
+            <p class="subtitulo">SOBRE NÓS</p>
+            <h1 id="pagina-titulo" class="titulo">
+                Desenvolvedores <span class="gradiente">apaixonados</span> por tecnologia
+            </h1>
 
-        <div class="conteudo">
+            <div class="conteudo">
 
-            <img src="img/Squad-H.jpeg" class="foto" alt="">
+                <img src="img/Squad-H.jpeg" class="foto" alt="Foto da equipe do Squad H" loading="lazy" decoding="async">
 
-            <div class="texto">
+                <div class="texto">
 
-                <P>Somos uma equipe de quatro desenvolvedores apaixonados por tecnologia, atualmente cursando Análise e Desenvolvimento de Sistemas (ADS). Combinamos nossos conhecimentos teóricos e práticos adquiridos na graduação para criar soluções inovadoras e eficientes. </p>                <p>Nossa formação nos proporciona uma visão abrangente...</p>
-                <p>Embora estejamos no início de nossa jornada profissional, nossa dedicação e projetos acadêmicos, detalhados neste portfólio, demonstram nossa capacidade de enfrentar desafios e entregar resultados de qualidade.</p>
-                <p>Estamos entusiasmados com as oportunidades futuras e comprometidos em continuar aprendendo e crescendo na área de desenvolvimento de software.</p>
+                    <p>Somos uma equipe de quatro desenvolvedores apaixonados por tecnologia, atualmente cursando Análise e Desenvolvimento de Sistemas (ADS). Combinamos nossos conhecimentos teóricos e práticos adquiridos na graduação para criar soluções inovadoras e eficientes.</p>
+                    <p>Nossa formação nos proporciona uma visão abrangente do desenvolvimento de software.</p>
+                    <p>Embora estejamos no início de nossa jornada profissional, nossa dedicação e projetos acadêmicos, detalhados neste portfólio, demonstram nossa capacidade de enfrentar desafios e entregar resultados de qualidade.</p>
+                    <p>Estamos entusiasmados com as oportunidades futuras e comprometidos em continuar aprendendo e crescendo na área de desenvolvimento de software.</p>
 
+                    <div class="skills-tags" aria-label="Principais competências">
+                        <span>Front-end</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
 
-                <div class="skills-tags">
-                    <span>FrontEnd</span>
-                    <span>Html</span>
-                    <span>Css</span>
-                    <span>JavaScript</span>
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="metricas">
-        <div class="card-metrica">
-            <span class="icone">📚</span>
-            <h2 class="gradiente">+1 ano</h2>
-            <p>De Estudo e Prática</p>
-        </div>
+        <section class="metricas" aria-label="Métricas da equipe">
+            <article class="card-metrica">
+                <span class="icone" aria-hidden="true">📚</span>
+                <h2 class="gradiente">+1 ano</h2>
+                <p>De estudo e prática</p>
+            </article>
 
-        <div class="card-metrica">
-            <span class="icone">💻</span>
-            <h2 class="gradiente">10+</h2>
-            <p>Projetos de Estudo</p>
-        </div>
+            <article class="card-metrica">
+                <span class="icone" aria-hidden="true">💻</span>
+                <h2 class="gradiente">10+</h2>
+                <p>Projetos de estudo</p>
+            </article>
 
-        <div class="card-metrica">
-            <span class="icone">👥</span>
-            <h2 class="gradiente">5+</h2>
-            <p>Projetos em Equipe</p>
-        </div>
+            <article class="card-metrica">
+                <span class="icone" aria-hidden="true">👥</span>
+                <h2 class="gradiente">5+</h2>
+                <p>Projetos em equipe</p>
+            </article>
 
-        <div class="card-metrica">
-            <span class="icone">🚀</span>
-            <h2 class="gradiente">100+</h2>
-            <p>Commits no GitHub</p>
-        </div>
-    </section>
+            <article class="card-metrica">
+                <span class="icone" aria-hidden="true">🚀</span>
+                <h2 class="gradiente">100+</h2>
+                <p>Commits no GitHub</p>
+            </article>
+        </section>
+    </main>
 
 </body>
 </html>

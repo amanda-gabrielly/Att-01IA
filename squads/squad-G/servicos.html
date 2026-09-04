@@ -2,46 +2,63 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="servicos.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/servicos.css">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Portfolio — Serviços & Preços</title>
 </head>
 <body>
   <h1>Serviços</h1>
 
-  <!-- Cards simples sem CSS -->
-  <div class = "design">
-    <h2>Design de UI/UX</h2>
-    <p>Wireframes, protótipos e design responsivo.</p>
-    <ul>
-      <li>Protótipos em Figma</li>
-      <li>Design responsivo</li>
-    </ul>
-  
-  <hr>
-
-  <div>
-    <h2>Desenvolvimento Front‑end</h2>
-    <p>Landing pages, sites estáticos e interfaces em HTML/CSS/JS.</p>
-    <ul>
-      <li>Componentes reutilizáveis</li>
-      <li>SEO básico</li>
-    </ul>
-  </div>
-  <hr>
-
-  
-    <h2>Branding & Identidade</h2>
-    <p>Logotipos, paletas e guias de estilo.</p>
-    <ul>
-      <li>Manual básico da marca</li>
-      <li>Fichas de aplicação</li>
-    </ul>
-  </div>
+  <header>
+    <nav aria-label="Navegação principal">
+      <div class="menu-container">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="habilidades.html">Habilidades</a></li>
+          <li><a href="depoimentos.html">Depoimentos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h1>Serviços</h1>
+    <section class="servicos-lista">
+      <article class="design">
+        <h2>Design de UI/UX</h2>
+        <p>Wireframes, protótipos e design responsivo.</p>
+        <ul>
+          <li>Protótipos em Figma</li>
+          <li>Design responsivo</li>
+        </ul>
+      </article>
+      <hr>
+      <article>
+        <h2>Desenvolvimento Front‑end</h2>
+        <p>Landing pages, sites estáticos e interfaces em HTML/CSS/JS.</p>
+        <ul>
+          <li>Componentes reutilizáveis</li>
+          <li>SEO básico</li>
+        </ul>
+      </article>
+      <hr>
+      <article>
+        <h2>Branding & Identidade</h2>
+        <p>Logotipos, paletas e guias de estilo.</p>
+        <ul>
+          <li>Manual básico da marca</li>
+          <li>Fichas de aplicação</li>
+        </ul>
+      </article>
+    </section>
 
   <h1>Planos e Preços</h1>
 
-  <table border="1" cellpadding="8" cellspacing="0">
+  <table>
     <tr>
       <th>Plano</th>
       <th>Preço</th>
@@ -85,7 +102,7 @@
       </td>
     </tr>
   </table>
-
+  </main>
 </body>
 </html>
 

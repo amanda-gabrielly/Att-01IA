@@ -1,59 +1,80 @@
-<!-- Serviços - Squad I -->
+<!--
+=========================================================
+ARQUIVO: servicos.html
+SQUAD: I
+OBJETIVO: Exibir a listagem de serviços oferecidos pela equipe.
+REFATORAÇÃO APLICADA:
+- Clean Code (Semântica): Padronização do menu de navegação (<nav>) com listas (<ul> e <li>). Envolvimento do miolo com <main> e substituição das divs dos cards por <article>.
+- Correção de Conteúdo: Ajuste ortográfico na classe da seção (de "especiliadades" para "especialidades").
+- Otimização (Acessibilidade & SEO): Inclusão de meta description, atributo aria-current no link ativo do menu, e aria-hidden nos ícones puramente decorativos.
+=========================================================
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serviços - Squad I</title>
-  <link rel="stylesheet" href="styles/servicos.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Otimização [SEO]: Descrição da página para motores de busca -->
+    <meta name="description" content="Conheça os serviços de desenvolvimento web do Squad I: criação de websites, lojas online e blogs personalizados.">
+    
+    <title>Serviços - Squad I</title>
+    <!-- Bootstrap Icons para os ícones de serviços -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles/servicos.css">
 </head>
 
 <body>
-  <header>
-    <h1>SQUAD I</h1>
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
+    <header>
+        <h1>SQUAD <span>I</span></h1>
 
-    <nav>
-      <a href="home.html">Início</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="habilidades.html">Habilidades</a>
-      <a href="projetos.html">Projetos</a>
-      <a href="servicos.html">Serviços</a>
-      <a href="depoimentos.html">Depoimentos</a>
-      <a href="case-de-sucesso.html">Sucessos</a>
-      <a href="contato.html">Contato</a>
-    </nav>
-  </header>
-  <section class="especiliadades">
-    <div class="interface">
-      <h2 class="titulo">NOSSOS <span>SERVIÇOS.</span></h2>
-      <div class="flex">
-        <div class="especialidades-box">
-          <i class="bi bi-code-square"></i>
-          <h3>Website</h3>
-          <p>Desenvolvimento de sites institucionais com foco em organização, navegação simples e estrutura limpa.
-            Criação de páginas utilizando HTML, CSS e JavaScript, garantindo desempenho adequado e adaptação a
-            diferentes dispositivos.</p>
-        </div>
+        <!-- Clean Code: Padronizado com lista para manter consistência com as demais páginas -->
+        <nav aria-label="Navegação Principal">
+            <ul>
+                <li><a href="home.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <!-- Otimização [Acessibilidade]: aria-current indica a página atual -->
+                <li><a href="servicos.html" class="ativo" aria-current="page">Serviços</a></li>
+                <li><a href="depoimentos.html">Depoimentos</a></li>
+                <li><a href="case-de-sucesso.html">Sucessos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="especialidades-box">
-          <i class="bi bi-cart"></i>
-          <h3>Loja online</h3>
-          <p>Criação de lojas virtuais básicas, estruturadas para apresentar produtos de forma clara e funcional.
-            Configuração de layouts simples, páginas de catálogo e áreas de contato, priorizando praticidade e
-            usabilidade.</p>
-        </div>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <section class="especialidades" aria-label="Nossos Serviços">
+            <div class="interface">
+                <h2 class="titulo">NOSSOS <span>SERVIÇOS.</span></h2>
+                
+                <div class="flex">
+                    <!-- Clean Code: Substituição de div genérica por <article> -->
+                    <article class="especialidades-box">
+                        <!-- Otimização [Acessibilidade]: aria-hidden oculta o ícone decorativo de leitores de tela -->
+                        <i class="bi bi-code-square" aria-hidden="true"></i>
+                        <h3>Website</h3>
+                        <p>Desenvolvimento de sites institucionais com foco em organização, navegação simples e estrutura limpa. Criação de páginas utilizando HTML, CSS e JavaScript, garantindo desempenho adequado e adaptação a diferentes dispositivos.</p>
+                    </article>
 
-        <div class="especialidades-box">
-          <i class="bi bi-wordpress"></i>
-          <h3>Blog</h3>
-          <p>Desenvolvimento de blogs personalizados com estrutura de posts, navegação intuitiva e design leve.
-            Implementação de páginas responsivas e organização de conteúdo voltado para leitura confortável em qualquer
-            tela.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+                    <article class="especialidades-box">
+                        <i class="bi bi-cart" aria-hidden="true"></i>
+                        <h3>Loja online</h3>
+                        <p>Criação de lojas virtuais básicas, estruturadas para apresentar produtos de forma clara e funcional. Configuração de layouts simples, páginas de catálogo e áreas de contato, priorizando praticidade e usabilidade.</p>
+                    </article>
+
+                    <article class="especialidades-box">
+                        <i class="bi bi-wordpress" aria-hidden="true"></i>
+                        <h3>Blog</h3>
+                        <p>Desenvolvimento de blogs personalizados com estrutura de posts, navegação intuitiva e design leve. Implementação de páginas responsivas e organização de conteúdo voltado para leitura confortável em qualquer tela.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>

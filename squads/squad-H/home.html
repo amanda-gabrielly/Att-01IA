@@ -1,52 +1,75 @@
-<!-- Home - Squad H -->
+<!--
+=========================================================
+ARQUIVO: home.html
+SQUAD: H
+OBJETIVO: Página inicial (Landing Page) do portfólio da equipe.
+REFATORAÇÃO APLICADA:
+- Clean Code (Correção de Bug): Remoção da tag </div> órfã e redundante no final do arquivo.
+- Clean Code (Semântica): Reorganização estrutural usando <header>, <nav>, <main> e <aside> para os ícones sociais.
+- Otimização (SEO & Acessibilidade): Inclusão de meta description, atributos aria-current no menu ativo e aria-label nos links externos de redes sociais.
+- Correção de Conteúdo: Ajuste no subtítulo de apresentação para eliminar a mistura redundante de idiomas.
+=========================================================
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Home - Squad H</title>
-  <link rel="stylesheet" href="styles/home.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Otimização [SEO]: Descrição da página para motores de busca -->
+    <meta name="description" content="Portfólio oficial do Squad H. Especializados em criar experiências digitais incríveis com React, Node.js e TypeScript.">
+    
+    <title>Home - Squad H</title>
+    <link rel="stylesheet" href="styles/home.css">
 </head>
+
 <body> 
-  <div class="logo-container">
-  <img src="dev_logo.webp" alt="Logo" class="logo">
-   <p>Portfolio</p>
-</div>
-<header>
-<nav>
-    <ul class="links">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="contato.html">Contato</a></li>
-      <li><a href="depoimentos.html">Depoimentos</a></li>
-      <li><a href="habilidades.html">Habilidades</a></li>
-      <li><a href="projetos.html">Projetos</a></li>
-      <li><a href="servicos.html">Serviços</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-    </ul>
-    <div class="botao-centro">
-      <button class="botao">Ver projetos</button>
-    </div>
-  </nav> 
 
-</header>
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
+    <header>
+        <div class="logo-container">
+            <img src="dev_logo.webp" alt="Logotipo da Equipe Dev" class="logo">
+            <p>Portfolio</p>
+        </div>
 
-  <main class="titulos">
-      <p>Olá, nós somos</p>
-      <h1>Equipe unida</h1>
-      <h2>Desenvolvedores full stack Developer</h2>
-      <p>Especializados em criar experiências digitais incríveis com React, Node.js e TypeScript. Transformamos ideias em soluções tecnológicas inovadoras.</p>
-  </main>
+        <nav aria-label="Navegação Principal">
+            <ul class="links">
+                <!-- Otimização [Acessibilidade]: aria-current indica a página atual -->
+                <li><a href="home.html" class="ativo" aria-current="page">Home</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="depoimentos.html">Depoimentos</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+            
+            <div class="botao-centro">
+                <a href="projetos.html" class="botao" role="button">Ver projetos</a>
+            </div>
+        </nav>
+    </header>
 
-   <div class="opçoes-superior-direita">
-  <a href="#" class="icon github">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="Github">
-  </a>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="titulos">
+        <p class="saudacao">Olá, nós somos</p>
+        <h1>Equipe unida</h1>
+        <h2>Desenvolvedores Full Stack</h2>
+        <p class="descricao-principal">
+            Especializados em criar experiências digitais incríveis com React, Node.js e TypeScript. Transformamos ideias em soluções tecnológicas inovadoras.
+        </p>
+    </main>
 
-  <a href="linkedin.svg" class="icon linkedin">
-    <img src="linkedin.svg" alt="LinkedIn">
-  </a>
+    <!-- REDES SOCIAIS (Conteúdo lateral/secundário) -->
+    <aside class="opçoes-superior-direita" aria-label="Redes Sociais">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="icon github" aria-label="Acesse nosso GitHub">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="" aria-hidden="true">
+        </a>
 
-</div>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="icon linkedin" aria-label="Acesse nosso LinkedIn">
+            <img src="linkedin.svg" alt="" aria-hidden="true">
+        </a>
+    </aside>
 
-</div>
 </body>
 </html>

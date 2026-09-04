@@ -1,100 +1,166 @@
-body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
+/*
+=========================================================
+ARQUIVO: sobre.css (Squad I)
+OBJETIVO: Estilizar a página de biografia e perfis das integrantes.
+REFATORAÇÃO APLICADA:
+- Clean Code (Variáveis): Introdução do bloco :root para centralizar o controle de cores (Preto e Verde Neon).
+- Ajuste de Seletor: Atualização de `.perfil h2` para `.perfil h3` para alinhar com a nova hierarquia semântica do HTML.
+- Otimização de Performance: Especificação clara das propriedades alteradas nas transições do hover.
+=========================================================
+*/
+
+:root {
+    --bg-body: #000000;
+    --bg-header: #111111;
+    --bg-card: #111111;
+    --borda-card: #1f1f1f;
+    --texto-branco: #ffffff;
+    --cor-neon: #00ff5e;
+    --sombra-neon: rgba(0, 255, 94, 0.35);
+}
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--texto-branco);
+    font-family: Arial, sans-serif;
 }
 
 header {
-    padding: 10px;
+    padding: 15px 20px;
     text-align: center;
-    background-color: #111;
+    background-color: var(--bg-header);
+    border-bottom: 1px solid var(--borda-card);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: var(--texto-branco);
+}
+
+.logo span {
+    color: var(--cor-neon);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
 nav a {
-    color: white;
+    color: var(--texto-branco);
     text-decoration: none;
-    margin: 10px;
+    transition: color 0.3s ease;
 }
 
-nav a:hover {
-    color: #00ff5e;
+nav a:hover,
+nav a.ativo {
+    color: var(--cor-neon);
 }
 
+/* TÍTULO DA SEÇÃO */
 h2.titulo {
-  color: #fff;
-  font-size: 40px;
-  text-align: center;
+    color: var(--texto-branco);
+    font-size: 40px;
+    text-align: center;
 }
 
 h2.titulo span {
-  color: #00FF08;
+    color: var(--cor-neon);
 }
 
 .titulo {
-    margin-top: -10px;
+    margin-top: 10px;
     margin-bottom: 40px;
 }
 
+/* CONTAINER DOS PERFIS */
 .sobre-container {
-    padding: 40px 4%;
+    padding: 50px 4%;
 }
 
 .sobre-container .flex {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 40px;
+    gap: 30px;
     flex-wrap: nowrap;
 }
 
-
+/* CARDS DE PERFIL */
 .perfil {
-    background-color: #111;
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda-card);
     padding: 30px;
     border-radius: 20px;
-    transition: .2s;
-    width: 300px;
+    
+    /* Otimização de Performance: Especificação das propriedades do hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    width: 280px;
     box-sizing: border-box;
 }
 
 .perfil:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 20px #ffffff44;
+    transform: translateY(-8px);
+    border-color: var(--cor-neon);
+    box-shadow: 0 0 25px var(--sombra-neon);
 }
 
-.perfil h2 {
-    color: #00FF08;
+.perfil h3 {
+    color: var(--cor-neon);
     text-align: center;
     margin-bottom: 15px;
+    font-size: 20px;
 }
 
 .perfil p {
-    color: white;
-    line-height: 1.5;
+    color: #cccccc;
+    line-height: 1.6;
     text-align: center;
+    font-size: 14px;
 }
+
+
+/* =========================================================
+   MEDIA QUERIES (Responsividade aprimorada)
+   ========================================================= */
 
 @media (max-width: 1024px) {
     .sobre-container .flex {
-        gap: 30px;
+        gap: 20px;
+        flex-wrap: wrap;
     }
 }
 
 @media (max-width: 850px) {
     .sobre-container .flex {
-        flex-wrap: wrap;
         justify-content: center;
     }
 
     .perfil {
-        width: 280px;
+        width: 45%;
+        min-width: 260px;
     }
 }
 
 @media (max-width: 600px) {
-
-    nav {
+    nav ul {
         flex-direction: column;
         gap: 8px;
     }
@@ -120,7 +186,6 @@ h2.titulo span {
 }
 
 @media (max-width: 420px) {
-
     h2.titulo {
         font-size: 30px;
     }

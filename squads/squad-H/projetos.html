@@ -1,69 +1,87 @@
+<!--
+    Arquivo: projetos.html
+    Squad: H
+    Objetivo: Apresentar os principais projetos desenvolvidos pela equipe
+              DevJuniors, com suas tecnologias e descricoes resumidas.
+
+    Refatoracoes e melhorias aplicadas:
+    - Inclusao deste cabecalho com arquivo, squad, objetivo e alteracoes realizadas.
+    - Correcao do titulo da pagina para "Bem-vindo".
+    - Adicao de fechamento consistente nos elementos meta e link.
+    - Transformacao do bloco introdutorio em um elemento header semantico.
+    - Inclusao de uma section com aria-labelledby para agrupar os projetos.
+    - Substituicao das divs dos projetos por elementos article semanticos.
+    - Melhoria dos textos alternativos das imagens para descrever cada projeto.
+    - Adicao de loading lazy e decoding async nas imagens dos projetos.
+    - Correcao de erros de digitacao e concordancia nas descricoes.
+    - Padronizacao da escrita de JavaScript nas etiquetas de tecnologia.
+    - Correcao da capitalizacao dos titulos dos projetos.
+    - Remocao de espacos, linhas vazias e indentacoes redundantes.
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem vindo aos projetos da nossa equipe</title>
-    <link rel="stylesheet" href="styles/projetos.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bem-vindo aos projetos da nossa equipe</title>
+    <link rel="stylesheet" href="styles/projetos.css" />
 </head>
 <body>
     <main class="class-carde-projetos">
-        
-        <div class="section-header">
+        <header class="section-header">
             <p class="subtitle">PORTFOLIO</p>
-            <h1 class="title">Projetos em Destaque</h1>
-            <p class="description">Alguns dos meus trabalhos mais recentes e impactantes</p>
-        </div>
+            <h1 id="pagina-titulo" class="title">Projetos em destaque</h1>
+            <p class="description">Alguns dos nossos trabalhos mais recentes e impactantes.</p>
+        </header>
 
-        <div class="projects-grid">
-            
-            <div class="card-projeto">
+        <section class="projects-grid" aria-labelledby="pagina-titulo">
+            <article class="card-projeto">
                 <div class="card-image">
-                                        <img src="Gemini_Generated_Image_uiedb7uiedb7uied.png" alt="Projeto E-commerce" />
+                    <img src="Gemini_Generated_Image_uiedb7uiedb7uied.png" alt="Prévia da plataforma de e-commerce para uma loja de água potável" loading="lazy" decoding="async" />
                     <span class="badge">Destaque</span>
                 </div>
 
                 <div class="card-body">
-                    <h2 class="card-title">PLATAFORMA PARA UMA LOJA DE ÁGUA POTÁVEL</h2>
+                    <h2 class="card-title">Plataforma para uma loja de água potável</h2>
                     <p class="card-description">
-                        Plataforma completa de e-commerce com, painel administrativo, tela de login e tela de cadastro de produtos dísponiveis na sua loja.
+                        Plataforma completa de e-commerce com painel administrativo, tela de login e cadastro dos produtos disponíveis na loja.
                     </p>
 
                     <div class="tags">
                         <span class="tag">HTML</span>
                         <span class="tag">CSS</span>
-                        <span class="tag">JAVA SCRIPT</span>
+                        <span class="tag">JavaScript</span>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="card-projeto">
+            <article class="card-projeto">
                 <div class="card-image">
-                                        <img src="Gemini_Generated_Image_uiedb7uiedb7uied (1).png" alt="Projeto Réplica Google" />
+                    <img src="Gemini_Generated_Image_uiedb7uiedb7uied (1).png" alt="Prévia da réplica da página inicial do Google" loading="lazy" decoding="async" />
                     <span class="badge">Destaque</span>
                 </div>
 
                 <div class="card-body">
-                    <h2 class="card-title">HOME DO GOOGLE</h2>
+                    <h2 class="card-title">Página inicial do Google</h2>
                     <p class="card-description">
-                        Uma réplica da página inicial do google com barra de pesquisa funcional e botões interativos.
+                        Uma réplica da página inicial do Google com barra de pesquisa funcional e botões interativos.
                     </p>
 
                     <div class="tags">
                         <span class="tag">HTML</span>
                         <span class="tag">CSS</span>
-                        <span class="tag">JAVA SCRIPT</span>
+                        <span class="tag">JavaScript</span>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <div class="card-projeto">
+            <article class="card-projeto">
                 <div class="card-image">
-                                        <img src="Gemini_Generated_Image_4qp7n14qp7n14qp7.png" alt="Projeto Jornal" />
+                    <img src="Gemini_Generated_Image_4qp7n14qp7n14qp7.png" alt="Prévia da página responsiva de jornal" loading="lazy" decoding="async" />
                 </div>
 
                 <div class="card-body">
-                    <h2 class="card-title">página de jornal</h2>
+                    <h2 class="card-title">Página de jornal</h2>
                     <p class="card-description">
                         Uma página de jornal responsiva com layout moderno e adaptável a diferentes tipos de telas.
                     </p>
@@ -71,12 +89,11 @@
                     <div class="tags">
                         <span class="tag">HTML</span>
                         <span class="tag">CSS</span>
-                        <span class="tag">JAVA SCRIPT</span>
+                        <span class="tag">JavaScript</span>
                     </div>
                 </div>
-            </div>
-            
-            </div>
+            </article>
+        </section>
     </main>
 </body>
 </html>

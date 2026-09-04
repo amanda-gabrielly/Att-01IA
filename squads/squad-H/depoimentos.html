@@ -1,13 +1,24 @@
-<!-- Depoimentos - Squad H -->
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <title>Depoimentos - Squad H</title>
-</head>
-<body>
-  HTML
+<!--
+    Arquivo: depoimentos.html
+    Squad: H
+    Objetivo: Apresentar depoimentos de clientes sobre os servicos e resultados
+              entregues pela equipe DevJuniors.
 
+    Refatoracoes e melhorias aplicadas:
+    - Substituicao do comentario inicial generico por este cabecalho documentado.
+    - Adicao de uma navegacao principal com aria-label.
+    - Transformacao do logotipo em link semantico para a pagina inicial.
+    - Adicao de aria-label ao link do logotipo para melhorar sua identificacao.
+    - Adicao de aria-current="page" ao link da pagina atualmente selecionada.
+    - Renomeacao do item "SuccessStory" para "Case de sucesso".
+    - Inclusao do landmark main para delimitar o conteudo principal.
+    - Associacao da secao de depoimentos ao titulo por meio de aria-labelledby.
+    - Substituicao das divs dos depoimentos por elementos article semanticos.
+    - Estruturacao de cada avaliacao como blockquote com autoria em cite.
+    - Adicao de role="img" e aria-label ao indicador visual de estrelas.
+    - Manutencao da hierarquia de titulos com h1 e h2.
+    - Remocao do espaco excedente e de marcacoes HTML redundantes.
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -20,58 +31,62 @@
 
 <body>
 
-    <nav class="navbar">
-        <div class="logo">💻 DevJuniors</div>
+    <nav class="navbar" aria-label="Navegação principal">
+        <a class="logo" href="home.html" aria-label="DevJuniors, página inicial">DevJuniors</a>
 
         <ul class="menu">
             <li><a href="home.html">Home</a></li>
             <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="case-de-sucesso.html">SuccessStory</a></li>
+            <li><a href="case-de-sucesso.html">Case de sucesso</a></li>
             <li><a href="projetos.html">Projetos</a></li>
             <li><a href="habilidades.html">Habilidades</a></li>
             <li><a href="servicos.html">Serviços</a></li>
-            <li><a href="depoimentos.html" class="ativo">Depoimentos</a></li>
+            <li><a href="depoimentos.html" class="ativo" aria-current="page">Depoimentos</a></li>
             <li><a href="contato.html">Contato</a></li>
         </ul>
     </nav>
 
     <header class="header">
-        <h1>O que nossos clientes dizem</h1>
+        <h1 id="pagina-titulo">O que nossos clientes dizem</h1>
         <p class="descricao">Feedback real de pessoas que confiaram no nosso trabalho.</p>
     </header>
 
-    <section class="depoimentos-container">
+    <main>
+        <section class="depoimentos-container" aria-labelledby="pagina-titulo">
 
-        <div class="card-depoimento">
-            <h3>Mariana Souza</h3>
-            <p class="profissao">Empresária</p>
-            <p class="texto">
-                “O site ficou incrível! Rápido, moderno e muito bem organizado. A equipe é super atenciosa.”
-            </p>
-            <div class="estrelas">★★★★★</div>
-        </div>
+            <article class="card-depoimento">
+            <h2>Mariana Souza</h2>
+                <p class="profissao">Empresária</p>
+                <blockquote class="texto">
+                    “O site ficou incrível! Rápido, moderno e muito bem organizado. A equipe é super atenciosa.”
+                    <cite>Mariana Souza</cite>
+                </blockquote>
+                <div class="estrelas" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</div>
+            </article>
 
-        <div class="card-depoimento">
-            <h3>Lucas Andrade</h3>
-            <p class="profissao">Fotógrafo</p>
-            <p class="texto">
-                “Transformaram minhas ideias em algo muito melhor do que eu esperava!”
-            </p>
-            <div class="estrelas">★★★★★</div>
-        </div>
+            <article class="card-depoimento">
+                <h2>Lucas Andrade</h2>
+                <p class="profissao">Fotógrafo</p>
+                <blockquote class="texto">
+                    “Transformaram minhas ideias em algo muito melhor do que eu esperava!”
+                    <cite>Lucas Andrade</cite>
+                </blockquote>
+                <div class="estrelas" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</div>
+            </article>
 
-        <div class="card-depoimento">
-            <h3>Ana Oliveira</h3>
-            <p class="profissao">Influencer</p>
-            <p class="texto">
-                “Super recomendo. Trabalho impecável e entrega dentro do prazo.”
-            </p>
-            <div class="estrelas">★★★★★</div>
-        </div>
+            <article class="card-depoimento">
+                <h2>Ana Oliveira</h2>
+                <p class="profissao">Influencer</p>
+                <blockquote class="texto">
+                    “Super recomendo. Trabalho impecável e entrega dentro do prazo.”
+                    <cite>Ana Oliveira</cite>
+                </blockquote>
+                <div class="estrelas" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</div>
+            </article>
 
-    </section>
+        </section>
+    </main>
 
 </body>
 </html>
-</body>
-</html>
+

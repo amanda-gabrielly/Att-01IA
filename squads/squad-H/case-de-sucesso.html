@@ -1,4 +1,24 @@
-<!-- Case de Sucesso - Squad H -->
+    Arquivo: case-de-sucesso.html
+    Squad: H
+    Objetivo: Apresentar um case de sucesso da equipe DevJuniors, destacando
+              o problema do cliente, as melhorias entregues e o depoimento final.
+
+    Refatoracoes e melhorias aplicadas:
+    - Substituicao do comentario inicial generico por este cabecalho documentado.
+    - Declaracao do idioma do documento como portugues do Brasil.
+    - Adicao de uma navegacao principal com o atributo aria-label.
+    - Transformacao do logotipo em link semantico para a pagina inicial.
+    - Adicao de aria-label ao link do logotipo para melhorar sua identificacao.
+    - Adicao de aria-current="page" ao link da pagina atualmente selecionada.
+    - Renomeacao do item "SuccessStory" para "Case de sucesso".
+    - Inclusao do landmark main para delimitar o conteudo principal.
+    - Associacao da secao do case ao titulo por meio de aria-labelledby.
+    - Substituicao da div da imagem por figure, com figcaption descritivo.
+    - Melhoria do texto alternativo da imagem para descrever seu conteudo.
+    - Estruturacao do depoimento com p e cite dentro de blockquote.
+    - Organizacao hierarquica do conteudo com h1, h2 e h3.
+    - Manutencao de textos e links em HTML semantico e navegavel por teclado.
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -9,13 +29,13 @@
     <link rel="stylesheet" href="styles/case-de-sucesso.css">
 </head>
 <body>
- <nav class="navbar">
-        <div class="logo">💻 DevJuniors</div>
+    <nav class="navbar" aria-label="Navegação principal">
+        <a class="logo" href="home.html" aria-label="DevJuniors, página inicial">DevJuniors</a>
 
         <ul class="menu">
             <li><a href="home.html">Home</a></li>
             <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="case-de-sucesso.html" class="ativo">SuccessStory</a></li>
+            <li><a href="case-de-sucesso.html" class="ativo" aria-current="page">Case de sucesso</a></li>
             <li><a href="projetos.html">Projetos</a></li>
             <li><a href="habilidades.html">Habilidades</a></li>
             <li><a href="servicos.html">Serviços</a></li>
@@ -23,44 +43,47 @@
             <li><a href="contato.html">Contato</a></li>
         </ul>
     </nav>
-     <header class="header">
+    <header class="header">
         <h1>Case de <span class="destaque">Sucesso</span></h1>
         <p class="descricao1">Veja como transformamos ideias em resultados reais.</p>
     </header>
 
-    <section class="case-container">
+    <main>
+        <section class="case-container" aria-labelledby="case-titulo">
 
-        <div class="case-imagem">
-            <img src="img/CASE.webp" alt="Projeto Final">
-        </div>
+            <figure class="case-imagem">
+                <img src="img/CASE.webp" alt="Captura de tela do site profissional criado para uma empresa local">
+                <figcaption>Resultado final do projeto desenvolvido.</figcaption>
+            </figure>
 
-        <div class="case-texto">
-            <h2>Site profissional para empresa local</h2>
+            <div class="case-texto">
+                <h2 id="case-titulo">Site profissional para empresa local</h2>
 
-            <p class="descricao">
-                A empresa buscava melhorar sua presença online. Criamos um site moderno, rápido e totalmente responsivo.
-            </p>
+                <p class="descricao">
+                    A empresa buscava melhorar sua presença online. Criamos um site moderno, rápido e totalmente responsivo.
+                </p>
 
-            <h3>Antes</h3>
-            <ul>
-                <li>Layout simples e desatualizado</li>
-                <li>Não era responsivo</li>
-                <li>Dificuldade de navegação</li>
-            </ul>
-             <h3>Depois</h3>
-            <ul>
-                <li>Design moderno e profissional</li>
-                <li>Velocidade otimizada</li>
-                <li>Navegação intuitiva</li>
-            </ul>
+                <h3>Antes</h3>
+                <ul>
+                    <li>Layout simples e desatualizado</li>
+                    <li>Não era responsivo</li>
+                    <li>Dificuldade de navegação</li>
+                </ul>
+                <h3>Depois</h3>
+                <ul>
+                    <li>Design moderno e profissional</li>
+                    <li>Velocidade otimizada</li>
+                    <li>Navegação intuitiva</li>
+                </ul>
 
-            <blockquote>
-                “O trabalho superou nossas expectativas! A visibilidade da empresa online aumentou muito.”
-                <br> — <strong>Cliente</strong>
-            </blockquote>
-        </div>
+                <blockquote>
+                    <p>“O trabalho superou nossas expectativas! A visibilidade da empresa online aumentou muito.”</p>
+                    <cite>Cliente</cite>
+                </blockquote>
+            </div>
 
         </section>
+    </main>
 
 </body>
 

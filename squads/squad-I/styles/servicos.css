@@ -1,104 +1,170 @@
-body {
-  background-color: black;
-  color: white;
-  font-family: Arial, sans-serif;
+/*
+=========================================================
+ARQUIVO: servicos.css (Squad I)
+OBJETIVO: Estilizar a página de serviços e os cards de especialidades.
+REFATORAÇÃO APLICADA:
+- Clean Code (Variáveis): Criação do bloco :root para gerenciar centralizadamente as cores (Preto e Verde Neon).
+- Correção ortográfica: Ajuste consistente do seletor ".especiliadades" para ".especialidades".
+- Otimização de Performance: Especificação clara das propriedades alteradas na animação ('transform' e 'box-shadow').
+=========================================================
+*/
+
+:root {
+  --bg-body: #000000;
+  --bg-header: #111111;
+  --bg-card: #111111;
+  --borda-card: #1f1f1f;
+  --texto-branco: #ffffff;
+  --cor-neon: #00ff5e;
+  --sombra-neon: rgba(0, 255, 94, 0.35);
+}
+
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--texto-branco);
+  font-family: Arial, sans-serif;
 }
 
 header {
   padding: 20px;
   text-align: center;
-  background-color: #111;
+  background-color: var(--bg-header);
+  border-bottom: 1px solid var(--borda-card);
+}
+
+header h1 {
+  color: var(--texto-branco);
+  font-size: 28px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+header h1 span {
+  color: var(--cor-neon);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
 nav a {
-  color: white;
+  color: var(--texto-branco);
   text-decoration: none;
-  margin: 10px;
+  transition: color 0.3s ease;
 }
 
-nav a:hover {
-  color: #00ff5e;
+nav a:hover,
+nav a.ativo {
+  color: var(--cor-neon);
 }
 
-h1 {
-  color: white;
-}
-
+/* TÍTULO DA SEÇÃO */
 h2.titulo {
-  color: #fff;
+  color: var(--texto-branco);
   font-size: 40px;
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 h2.titulo span {
-  color: #00FF08;
+  color: var(--cor-neon);
 }
 
 .titulo {
-    margin-top: -10px;
-    margin-bottom: -10px;
+  margin-top: -10px;
+  margin-bottom: -10px;
 }
 
-section.especiliadades {
-  padding: 40px 4%;
-  background-color: black;
+/* SEÇÃO DE ESPECIALIDADES / SERVIÇOS */
+section.especialidades {
+  padding: 60px 4%;
+  background-color: var(--bg-body);
 }
 
-section.especiliadades .flex {
+section.especialidades .flex {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  gap: 60px;
-  flex-wrap: nowrap;
+  gap: 40px;
+  flex-wrap: wrap; /* Alterado de nowrap para wrap para evitar overflow em telas intermediárias */
+  margin-top: 40px;
 }
 
-.especiliadades .especialidades-box {
-  color: #fff;
-  padding: 40px;
+.especialidades .especialidades-box {
+  color: var(--texto-branco);
+  padding: 40px 30px;
   border-radius: 20px;
-  margin-top: 45px;
-  transition: .2s;
-  width: 300px;
+  border: 1px solid var(--borda-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  width: 320px;
   box-sizing: border-box;
-  background-color: #111;
+  background-color: var(--bg-card);
 }
 
-.especiliadades .especialidades-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ffffff78;
+.especialidades .especialidades-box:hover {
+  transform: translateY(-8px); /* Elevação suave combinada com o scale */
+  border-color: var(--cor-neon);
+  box-shadow: 0 0 25px var(--sombra-neon);
 }
 
-.especiliadades .especialidades-box i {
-  font-size: 70px;
-  color: #00FF08;
+.especialidades .especialidades-box i {
+  font-size: 60px;
+  color: var(--cor-neon);
+  margin-bottom: 10px;
+  display: inline-block;
 }
 
-.especiliadades .especialidades-box h3 {
-  font-size: 28px;
+.especialidades .especialidades-box h3 {
+  font-size: 24px;
   margin: 15px 0;
-  color: white;
+  color: var(--texto-branco);
+}
+
+.especialidades .especialidades-box p {
+  color: #cccccc;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+ MEDIA QUERIES (Responsividade otimizada)
+ ========================================================= */
+
+@media (max-width: 900px) {
+  section.especialidades .flex {
+      gap: 25px;
+  }
+  
+  .especialidades .especialidades-box {
+      width: 280px;
+  }
 }
 
 @media (max-width: 600px) {
-  section.especiliadades .flex {
-    flex-direction: column; 
-    align-items: center;
-    gap: 30px;
+  section.especialidades .flex {
+      flex-direction: column; 
+      align-items: center;
+      gap: 25px;
   }
 
-  .especiliadades .especialidades-box {
-    width: 280px;
-  }
-}
-
-@media (max-width: 600px) {
-  .especiliadades .especialidades-box {
-    width: 90%;
-    margin-top: 20px;
+  .especialidades .especialidades-box {
+      width: 90%;
+      max-width: 320px;
+      margin-top: 0;
   }
 
   h2.titulo {
-    font-size: 30px;
+      font-size: 28px;
   }
 }

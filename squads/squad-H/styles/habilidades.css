@@ -1,3 +1,36 @@
+/*
+=========================================================
+ARQUIVO: habilidades.css
+OBJETIVO: Estilizar a listagem de competências e tecnologias.
+REFATORAÇÃO APLICADA:
+- Clean Code (Variáveis): Criação do bloco :root para centralizar o gerenciamento de cores e facilitar manutenção.
+- Otimização de Performance: Especificação clara das propriedades alteradas na 'transition' (evita repinturas desnecessárias na GPU).
+- UX / UI (Feedback Tátil): Adicionado brilho/sombra na borda e efeito de elevação otimizado no hover dos cards.
+=========================================================
+*/
+
+/* 1. VARIÁVEIS GERAIS (Clean Code) */
+:root {
+    --bg-body: #0d1525;
+    --bg-navbar: #0b1320;
+    --bg-card: #111b2e;
+    
+    --borda-card: #1e2a43;
+    --borda-hover: #7b2fff;
+    
+    --texto-branco: #ffffff;
+    --texto-claro: #c9d1d9;
+    --texto-mutado: #8ea0b5;
+    --texto-destaque: #7b8a9e;
+    
+    --cor-primaria: #7b2fff;
+    --cor-secundaria: #d14cff;
+    --gradiente-texto: linear-gradient(to right, var(--cor-primaria), var(--cor-secundaria));
+    
+    --fonte-padrao: "Poppins", sans-serif;
+}
+
+/* 2. RESET BÁSICO */
 * {
     margin: 0;
     padding: 0;
@@ -5,16 +38,16 @@
 }
 
 body {
-    background: #0d1525;
-    color: white;
-    font-family: "Poppins", sans-serif;
+    background: var(--bg-body);
+    color: var(--texto-branco);
+    font-family: var(--fonte-padrao);
 }
 
-
+/* 3. NAVEGAÇÃO (NAVBAR) */
 .navbar {
     width: 100%;
     padding: 20px 60px;
-    background: #0b1320;
+    background: var(--bg-navbar);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,75 +62,113 @@ body {
     display: flex;
     list-style: none;
     gap: 30px;
+    flex-wrap: wrap; /* Otimização para telas menores */
 }
 
 .menu a {
     text-decoration: none;
-    color: #c9d1d9;
-    transition: 0.3s;
+    color: var(--texto-claro);
+    transition: color 0.3s ease;
 }
 
 .menu a:hover,
 .menu .active {
-    color: #7b2fff;
+    color: var(--cor-primaria);
 }
 
-
+/* 4. CABEÇALHO DA SEÇÃO */
 .header {
     text-align: center;
     padding: 70px 30px;
 }
 
 .subtitulo {
-    color: #7b8a9e;
+    color: var(--texto-destaque);
     font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .header h1 {
     font-size: 40px;
     margin-top: 10px;
+    color: var(--texto-branco);
 }
 
 .destaque {
-    background: linear-gradient(to right, #7b2fff, #d14cff);
+    background: var(--gradiente-texto);
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 
 .descricao {
     margin-top: 10px;
-    color: #8ea0b5;
+    color: var(--texto-mutado);
+    font-size: 16px;
 }
 
-
+/* 5. GRID DE HABILIDADES */
 .skills-grid {
     width: 90%;
+    max-width: 1200px;
     margin: 40px auto;
     display: grid;
+    /* Excelente uso de auto-fit e minmax! Mantido com louvor */
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
 }
 
+/* 6. CARDS DE HABILIDADE */
 .skill-card {
-    background: #111b2e;
-    border: 1px solid #1e2a43;
-    padding: 25px;
+    background: var(--bg-card);
+    border: 1px solid var(--borda-card);
+    padding: 30px 25px;
     border-radius: 14px;
     text-align: center;
-    transition: 0.3s;
+    
+    /* Otimização de Performance: Especifica as propriedades da animação em vez de usar 'all' */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-card:hover {
     transform: translateY(-6px);
-    border-color: #7b2fff;
+    border-color: var(--borda-hover);
+    box-shadow: 0 10px 20px rgba(123, 47, 255, 0.15); /* UX: Adiciona um brilho sutil roxo ao passar o mouse */
 }
 
 .icon-skill {
     font-size: 45px;
-    margin-bottom: 10px;
-    color: #7b2fff;
+    margin-bottom: 15px;
+    color: var(--cor-primaria);
+    display: inline-block;
 }
 
+.skill-card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: var(--texto-branco);
+}
 
+.skill-card p {
+    color: var(--texto-mutado);
+    font-size: 14px;
+    line-height: 1.5;
+}
 
+/* 7. RESPONSIVIDADE ADICIONAL */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .header {
+        padding: 40px 15px;
+    }
 
+    .header h1 {
+        font-size: 32px;
+    }
+}

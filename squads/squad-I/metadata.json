@@ -1,20 +1,25 @@
 {
-  "squad_name": "squad-I",
-  "members": {
-    "html_team": [
-      "A33",
-      "A34"
-    ],
-    "css_team": [
-      "A35",
-      "A36"
-    ]
-  },
-  "experiment_group": "TODO",
-  "technologies": [
-    "HTML5",
-    "CSS3"
+  "arquivo": "sobre.css",
+  "squad": "I",
+  "objetivo": "Estilizar a página de biografia e perfis das integrantes",
+  "refatoracao_aplicada": [
+    "Clean Code (Variáveis): Introdução do bloco :root para centralizar o controle de cores (Preto e Verde Neon).",
+    "Ajuste de Seletor: Atualização de .perfil h2 para .perfil h3 para alinhar com a nova hierarquia semântica do HTML.",
+    "Otimização de Performance: Especificação clara das propriedades alteradas nas transições do hover."
   ],
-  "project_start": "2025-03-01",
-  "project_deadline": "2025-03-28"
+  "variaveis_css": {
+    "bg_body": "#000000",
+    "bg_header": "#111111",
+    "bg_card": "#111111",
+    "borda_card": "#1f1f1f",
+    "texto_branco": "#ffffff",
+    "cor_neon": "#00ff5e",
+    "sombra_neon": "rgba(0, 255, 94, 0.35)"
+  },
+  "breakpoints": [
+    "1024px",
+    "850px",
+    "600px",
+    "420px"
+  ]
 }

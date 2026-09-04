@@ -1,18 +1,61 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #211a33; 
+/*
+=========================================================
+ARQUIVO: depoimentos.css
+OBJETIVO: Estilizar a página de depoimentos.
+REFATORAÇÃO APLICADA:
+- Clean Code (Variáveis): Inserção de :root para controle de cores. Estruturado para facilitar a transição entre temas.
+- Clean Code (Reset): Inclusão do seletor '*' para garantir que paddings e margins de todos os navegadores sejam resetados.
+- UI/UX (Efeitos): Adicionada uma transição suave de 'hover' nos cards para dar mais interatividade.
+- Otimização (Leitura): Adicionado 'line-height' e 'font-style: italic' no texto para dar cara de citação real e melhorar a leitura.
+=========================================================
+*/
+
+:root {
+    /* CORES ORIGINAIS DO SEU CÓDIGO (Squad H - Roxo) */
+    --bg-body: #211a33;
+    --bg-card: #9933cc;
+    --sombra-card: rgba(0, 0, 0, 0.5);
+    --texto-card: #000000;
+
+    /* DICA: SE QUISER PADRONIZAR COM O SQUAD I (Verde Neon) QUE FIZEMOS ANTES, 
+       APAGUE AS 4 LINHAS ACIMA E USE ESTAS:
+    --bg-body: #000000;
+    --bg-card: #111111;
+    --sombra-card: rgba(0, 255, 8, 0.38);
+    --texto-card: #ffffff;
+    */
+
+    --texto-principal: #ffffff;
+    --texto-secundario: #cccccc;
+    --cor-estrelas: #FFD700; /* Dourado */
+    
+    --fonte-padrao: Arial, sans-serif;
 }
 
+/* 1. RESET GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-padrao);
+    background: var(--bg-body); 
+    color: var(--texto-principal);
+}
+
+/* 2. NAVEGAÇÃO (HEADER) */
 .navbar {
     padding: 15px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.15); /* Dá um leve fundo para o menu não sumir */
 }
 
 .navbar .logo {
-    color: #fff;
+    color: var(--texto-principal);
     font-size: 22px;
     font-weight: bold;
 }
@@ -21,19 +64,22 @@ body {
     list-style: none;
     display: flex;
     gap: 25px;
+    flex-wrap: wrap; /* Evita que o menu quebre telas menores */
 }
 
 .navbar .menu a {
-    color: #ccc;
+    color: var(--texto-secundario);
     text-decoration: none;
     font-size: 16px;
+    transition: color 0.3s ease;
 }
 
 .navbar .menu a.ativo,
 .navbar .menu a:hover {
-    color: #fff;
+    color: var(--texto-principal);
 }
 
+/* 3. CABEÇALHO DA SEÇÃO */
 .header {
     text-align: center;
     padding: 60px 20px 20px;
@@ -41,56 +87,91 @@ body {
 
 .header h1 {
     font-size: 36px;
-    color: #fff; 
+    color: var(--texto-principal); 
+    margin-bottom: 10px;
 }
 
 .header .descricao {
-    color: #ccc; 
+    color: var(--texto-secundario); 
     font-size: 18px;
 }
 
-
+/* 4. GRID DE DEPOIMENTOS */
 .depoimentos-container {
     max-width: 1100px;
     margin: 40px auto;
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Excelente uso de Grid! */
     gap: 25px;
     padding: 20px;
 }
 
+/* 5. CARDS DE DEPOIMENTO */
 .card-depoimento {
-    background: #9933cc; 
-    padding: 25px;
+    background: var(--bg-card); 
+    padding: 30px 25px;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 5px 15px var(--sombra-card); 
+    
+    /* UX: Efeito de flutuar ao passar o mouse */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    
+    /* Flexbox para garantir que as estrelas fiquem presas no fundo do card */
+    display: flex;
+    flex-direction: column;
 }
 
+.card-depoimento:hover {
+    transform: translateY(-8px); /* Card sobe levemente */
+    box-shadow: 0 10px 25px var(--sombra-card);
+}
+
+/* Imagem (Mantive a regra caso você coloque as fotos dos clientes no HTML depois) */
 .card-depoimento img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    margin: 0 auto 15px; /* Centraliza a imagem */
+    object-fit: cover;
 }
 
 .card-depoimento h3 {
-    margin-top: 15px;
-    color: #000000; 
+    color: var(--texto-card); 
+    font-size: 20px;
 }
 
 .profissao {
     font-size: 14px;
-    color: #000000; 
+    color: var(--texto-card); 
+    opacity: 0.7; /* Cria uma leve diferença de tom entre o Nome e a Profissão */
+    margin-top: 5px;
 }
 
 .texto {
-    margin-top: 10px;
-    color: #000000; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: var(--texto-card); 
     font-size: 15px;
+    line-height: 1.6; /* Acessibilidade: Melhora a leitura dando espaço entre as linhas */
+    font-style: italic; /* Dá um visual real de citação */
 }
 
 .estrelas {
-    margin-top: 15px;
-    color: gold;
+    margin-top: auto; /* Truque Ninja: Empurra as estrelas sempre para o final do card */
+    color: var(--cor-estrelas);
     font-size: 20px;
+    letter-spacing: 2px;
+}
+
+/* 6. RESPONSIVIDADE (MOBILE) */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .header h1 {
+        font-size: 30px;
+    }
 }

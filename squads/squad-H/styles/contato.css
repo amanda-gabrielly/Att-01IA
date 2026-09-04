@@ -1,20 +1,54 @@
- {
+/*
+=========================================================
+ARQUIVO: contato.css
+OBJETIVO: Estilizar a página de contato e o grid de integrantes.
+REFATORAÇÃO APLICADA:
+- Clean Code (Correção): Adição do seletor '*' ausente no reset inicial.
+- Clean Code (Variáveis): Criação do bloco :root para gerenciar o esquema de cores e facilitar a transição entre temas (ex: mudar de Roxo para Verde Neon).
+- Otimização (Responsividade): Adição de @media queries para garantir que o formulário e os cards não quebrem em telas de celular.
+- UX (Experiência do Usuário): Adição de transição e efeitos de foco (hover/focus) nos inputs para dar feedback visual.
+=========================================================
+*/
+
+/* 1. VARIÁVEIS GERAIS (Clean Code: Troque as cores aqui se quiser ir para o Verde do Squad I) */
+:root {
+    --bg-body: #0d1525;
+    --bg-navbar: #0b1320;
+    --bg-elementos: #111b2e;
+    --bg-cards: #0f192d;
+    
+    --borda-padrao: #1e2a43;
+    
+    --texto-branco: #ffffff;
+    --texto-claro: #c9d1d9;
+    --texto-mutado: #8ea0b5;
+    --texto-destaque: #7b8a9e;
+    
+    --cor-primaria: #7b2fff;
+    --cor-secundaria: #d14cff;
+    --gradiente-marca: linear-gradient(90deg, var(--cor-primaria), var(--cor-secundaria));
+    
+    --fonte-padrao: "Inter", sans-serif;
+}
+
+/* 2. RESET BÁSICO (Correção do bug: Adicionado o '*') */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: var(--fonte-padrao);
 }
 
 body {
-    background: #0d1525;
-    color: #fff;
+    background: var(--bg-body);
+    color: var(--texto-branco);
 }
 
-
+/* 3. NAVEGAÇÃO (HEADER) */
 .navbar {
     width: 100%;
     padding: 20px 60px;
-    background: #0b1320;
+    background: var(--bg-navbar);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -43,25 +77,24 @@ body {
 
 .menu a {
     text-decoration: none;
-    color: #c9d1d9;
+    color: var(--texto-claro);
     font-size: 16px;
-    transition: .3s;
+    transition: color 0.3s ease;
 }
 
 .menu a:hover,
 .menu .active {
-    color: #7b2fff;
+    color: var(--cor-primaria);
 }
 
-
-            
+/* 4. CABEÇALHO DA SEÇÃO DE CONTATO */
 .header {
     text-align: center;
     padding: 80px 20px 40px;
 }
 
 .subtitulo {
-    color: #7b8a9e;
+    color: var(--texto-destaque);
     font-size: 15px;
     margin-bottom: 10px;
 }
@@ -72,19 +105,19 @@ body {
 }
 
 .destaque {
-    background: linear-gradient(to right, #7b2fff, #d14cff);
+    background: var(--gradiente-marca);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
 .descricao {
-    color: #8ea0b5;
+    color: var(--texto-mutado);
     font-size: 18px;
     margin-bottom: 50px;
 }
 
-
+/* 5. LAYOUT PRINCIPAL E FORMULÁRIO */
 .contato-container {
     width: 90%;
     max-width: 1100px;
@@ -93,7 +126,6 @@ body {
     gap: 40px;
     padding-bottom: 80px;
 }
-
 
 .formulario {
     flex: 1;
@@ -109,7 +141,7 @@ body {
 
 .campo label {
     font-size: 16px;
-    color: #c9d1d9;
+    color: var(--texto-claro);
 }
 
 .campo input,
@@ -117,35 +149,44 @@ body {
     width: 100%;
     padding: 14px;
     margin-top: 6px;
-    background: #111b2e;
-    border: 1px solid #1e2a43;
+    background: var(--bg-elementos);
+    border: 1px solid var(--borda-padrao);
     border-radius: 10px;
-    color: #fff;
+    color: var(--texto-branco);
     font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+/* UX: Feedback visual ao digitar */
+.campo input:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria); 
 }
 
 .campo textarea {
     height: 140px;
-    resize: none;
+    resize: vertical; /* Otimização: Permite ao usuário redimensionar apenas para baixo */
 }
 
 .btn-enviar {
     margin-top: 10px;
-    background: linear-gradient(90deg, #7b2fff, #d14cff);
+    background: var(--gradiente-marca);
     padding: 14px;
     border: none;
     border-radius: 10px;
     font-size: 18px;
     cursor: pointer;
-    color: #fff;
-    transition: .3s;
+    color: var(--texto-branco);
+    transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
 .btn-enviar:hover {
-    opacity: .9;
+    opacity: 0.9;
+    transform: translateY(-2px); /* Efeito tátil de clique */
 }
 
-
+/* 6. INFORMAÇÕES DE CONTATO E GRID */
 .contatos-lista {
     flex: 1;
     display: flex;
@@ -154,34 +195,60 @@ body {
 }
 
 .card-info {
-    background: #111b2e;
+    background: var(--bg-elementos);
     padding: 20px;
     border-radius: 16px;
-    border: 1px solid #1e2a43;
+    border: 1px solid var(--borda-padrao);
 }
-
 
 .icon-card {
     font-size: 34px;
-    background: linear-gradient(90deg, #7b2fff, #d14cff);
+    background: var(--gradiente-marca);
     padding: 14px;
     border-radius: 14px;
     display: inline-block;
     margin-bottom: 10px;
 }
 
-
 .integrantes-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
 .card-integrante {
-    background: #0f192d;
+    background: var(--bg-cards);
     padding: 20px;
     border-radius: 12px;
     border: 1px solid #1c2944;
     text-align: left;
 }
 
+/* 7. RESPONSIVIDADE (Mobile First inverso) */
+@media (max-width: 900px) {
+    /* Empilha o formulário e as informações de contato */
+    .contato-container {
+        flex-direction: column; 
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .linha {
+        flex-direction: column; /* Inputs lado a lado agora ficam um embaixo do outro */
+        gap: 20px;
+    }
+
+    .integrantes-grid {
+        grid-template-columns: 1fr; /* Coluna única no celular */
+    }
+    
+    .header h1 {
+        font-size: 32px;
+    }
+}
